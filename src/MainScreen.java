@@ -13,6 +13,7 @@ public class MainScreen {
 
     public static void main(String[] args) {
 
+        //Initiating the panel
         JFrame frame = new JFrame("Phone App");
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.setContentPane(new MainScreen().appView);
