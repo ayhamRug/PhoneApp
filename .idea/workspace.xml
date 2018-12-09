@@ -1,8 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="ArtifactsWorkspaceSettings">
+    <artifacts-to-build>
+      <artifact name="PhoneApp:jar" />
+    </artifacts-to-build>
+  </component>
   <component name="ChangeListManager">
     <list default="true" id="c81671ab-2e3d-4f26-b1bc-3f5ddfb0ce82" name="Default" comment="">
+      <change afterPath="$PROJECT_DIR$/src/META-INF/MANIFEST.MF" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/artifacts/PhoneApp_jar.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/artifacts/PhoneApp_jar.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/PhoneApp_jar/PhoneApp.jar" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/PhoneApp_jar/PhoneApp.jar" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -17,8 +25,8 @@
       <file leaf-file-name="Result.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/Result.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="294">
-              <caret line="35" selection-start-line="35" selection-end-line="35" />
+            <state relative-caret-position="612">
+              <caret line="36" column="47" lean-forward="true" selection-start-line="36" selection-start-column="47" selection-end-line="36" selection-end-column="47" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -104,8 +112,8 @@
         <subPane>
           <expand>
             <path>
-              <item name="PhoneApp" type="b2602c69:ProjectViewProjectNode" />
-              <item name="PhoneApp" type="462c0819:PsiDirectoryNode" />
+              <item name="MyPhoneApp" type="b2602c69:ProjectViewProjectNode" />
+              <item name="MyPhoneApp" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -188,7 +196,7 @@
       <workItem from="1543851728226" duration="5742000" />
       <workItem from="1543857739536" duration="207000" />
       <workItem from="1544368622839" duration="17695000" />
-      <workItem from="1544393857376" duration="250000" />
+      <workItem from="1544393857376" duration="548000" />
     </task>
     <task id="LOCAL-00001" summary="Ayham: Create repository and added first interface.">
       <created>1543856384989</created>
@@ -208,7 +216,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="23894000" />
+    <option name="totallyTimeSpent" value="24192000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="1912" y="-4" width="1936" height="1056" extended-state="6" />
@@ -223,7 +231,7 @@
       <window_info anchor="right" id="Maven Projects" order="3" />
       <window_info anchor="bottom" id="Database Changes" order="7" show_stripe_button="false" />
       <window_info anchor="bottom" id="Version Control" order="7" weight="0.32943678" />
-      <window_info anchor="bottom" id="Run" order="2" visible="true" weight="0.32943678" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.32943678" />
       <window_info anchor="bottom" id="Terminal" order="7" />
       <window_info id="Capture Tool" order="2" />
       <window_info id="Designer" order="2" />
@@ -338,8 +346,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Result.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="294">
-          <caret line="35" selection-start-line="35" selection-end-line="35" />
+        <state relative-caret-position="612">
+          <caret line="36" column="47" lean-forward="true" selection-start-line="36" selection-start-column="47" selection-end-line="36" selection-end-column="47" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
