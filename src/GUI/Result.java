@@ -1,15 +1,14 @@
+package GUI;
+
 import javax.swing.*;
 import java.util.ArrayList;
 
 public class Result {
 
-
     private JPanel resultView;
     private JLabel resultTxt;
 
-
     public Result(ArrayList<String[]> x, int min, int max) {
-
         String res = "<html>The suitable phones for you following to the brand and the price range are: <br/><br/>";
 
         //To check if no phone was chosen
@@ -24,13 +23,10 @@ public class Result {
 
         }
 
-        if (count == 0){
+        if (count == 0)
             res = res + "Nothing!<br/><br/>";
-        }
-
 
         res = res + "<br/><br/><br/> We wish that you had good experience with this prototype <br/><br/> Stay tuned for the final product ^_^</html>";
-
 
         resultTxt.setText(res);
 
@@ -41,6 +37,5 @@ public class Result {
         frame.pack();
         frame.setSize(600,600);
         frame.setVisible(true);
-
     }
 }
