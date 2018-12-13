@@ -1,5 +1,6 @@
 package GUI;
 
+import BusinessLogic.Phone;
 import BusinessLogic.Phones;
 import Common.Common;
 
@@ -92,21 +93,16 @@ public class MainWindow {
             return;
         }
 
-        // no validation errors, perform submitBtn
+        // no validation errors, perform submit
 
         // getting all of the values from the starting interface to show them in a separate window for testing now.
         outputInputParameters();
 
-        // Initialize variables to store important values so far
-        int min = Integer.parseInt(textFieldMin.getText());
-        int max = Integer.parseInt(textFieldMax.getText());
+        int minPrice = Integer.parseInt(textFieldMin.getText());
+        int maxPrice = Integer.parseInt(textFieldMax.getText());
 
-        // Get the array following to the brand (just for the prototype) and show the results in the result class
-        //ArrayList<String[]> arr = null; //getPhoneByBrand(brand.getSelectedItem().toString()).get();
-
-        String selectedBrand = brand.getSelectedItem().toString();
-
-        new ResultWindow(Phones.getByBrand(selectedBrand), min, max);
+        Phone.PhoneBrandSelector selectedBrand = Phone.PhoneBrandSelector.valueOf(brand.getSelectedItem().toString());
+        new ResultWindow(Phones.getByBrand(selectedBrand), minPrice, maxPrice);
     }
 
     private DocumentListener createDocumentListenerForNumericTextField(JTextField inputTextField, JLabel errorLabel){

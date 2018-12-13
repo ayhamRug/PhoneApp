@@ -120,7 +120,7 @@
           <grid row="9" column="0" row-span="1" col-span="4" vsize-policy="0" hsize-policy="0" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
         </constraints>
         <properties>
-          <text value="Your Current Phone's Brand:"/>
+          <text value="Preferable brand"/>
         </properties>
       </component>
       <component id="cddc0" class="javax.swing.JComboBox" binding="brand">
@@ -129,12 +129,13 @@
         </constraints>
         <properties>
           <model>
+            <item value="Any"/>
             <item value="Huawei"/>
             <item value="LG"/>
             <item value="Nokia"/>
             <item value="Samsung"/>
             <item value="Sony"/>
-            <item value="iPhone"/>
+            <item value="Apple"/>
           </model>
         </properties>
       </component>
