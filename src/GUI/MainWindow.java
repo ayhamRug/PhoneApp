@@ -1,13 +1,14 @@
 package GUI;
 
-import BusinessLogic.Phones.*;
+import BusinessLogic.Phones;
+import Common.Common;
 
 import javax.swing.*;
 import javax.swing.event.DocumentEvent;
 import javax.swing.event.DocumentListener;
 import java.util.ArrayList;
 
-public class MainScreen {
+public class MainWindow {
 
     private JPanel appView;
     private JLabel appTitle;
@@ -27,48 +28,38 @@ public class MainScreen {
     private JCheckBox performanceCheckBox;
     private JCheckBox batteryLifeCheckBox;
     private JCheckBox cameraCheckBox;
-    private JButton submit;
+    private JButton submitBtn;
 
     private ArrayList<String> validationErrors;
 
-    public MainScreen() {
+    public MainWindow() {
         validationErrors = new ArrayList<>();
 
         ButtonGroup screenG = new ButtonGroup();
         screenG.add(bigScreen5RadioButton);
         screenG.add(smallScreen5RadioButton);
 
-        submit.addActionListener(e -> onSubmit());
+        submitBtn.addActionListener(e -> onSubmit());
 
         ageField.getDocument().addDocumentListener(createDocumentListenerForNumericTextField(ageField, warningAgeTxt));
         textFieldMin.getDocument().addDocumentListener(createDocumentListenerForNumericTextField(textFieldMin, warningMinTxt));
         textFieldMax.getDocument().addDocumentListener(createDocumentListenerForNumericTextField(textFieldMax, warningMaxTxt));
     }
 
-    public static boolean isInteger(String s) {
-        try {
-            Integer.parseInt(s);
-        } catch(NumberFormatException e) {
-            return false;
-        }
-
-        return true;
-    }
-
     private boolean validateInput(){
         if(ageField.getText().isEmpty())
             validationErrors.add("Age field is required!");
-        else if (!isInteger(ageField.getText()))
+        else if (!Common.isInteger(ageField.getText()))
             validationErrors.add("Age must me an integer value");
 
         if(textFieldMin.getText().isEmpty())
             validationErrors.add("Min field is required!");
-        else if(!isInteger(textFieldMin.getText()))
+        else if(!Common.isInteger(textFieldMin.getText()))
             validationErrors.add("Min value must me a numeric value");
 
         if(textFieldMax.getText().isEmpty())
             validationErrors.add("Max field is required!");
-        else if(!isInteger(textFieldMax.getText()))
+        else if(!Common.isInteger(textFieldMax.getText()))
             validationErrors.add("Max value must me a numeric value");
         else if(Integer.parseInt(textFieldMin.getText()) > Integer.parseInt(textFieldMax.getText()))
             validationErrors.add("The Maximum price is less than the Minimum!");
@@ -101,7 +92,7 @@ public class MainScreen {
             return;
         }
 
-        // no validation errors, perform submit
+        // no validation errors, perform submitBtn
 
         // getting all of the values from the starting interface to show them in a separate window for testing now.
         outputInputParameters();
@@ -111,13 +102,11 @@ public class MainScreen {
         int max = Integer.parseInt(textFieldMax.getText());
 
         // Get the array following to the brand (just for the prototype) and show the results in the result class
-        ArrayList<String[]> arr = getPhoneByBrand(brand.getSelectedItem().toString()).getPhones();
+        //ArrayList<String[]> arr = null; //getPhoneByBrand(brand.getSelectedItem().toString()).get();
 
-        new Result(arr, min, max);
-    }
+        String selectedBrand = brand.getSelectedItem().toString();
 
-    public JPanel getAppView(){
-        return appView;
+        new ResultWindow(Phones.getByBrand(selectedBrand), min, max);
     }
 
     private DocumentListener createDocumentListenerForNumericTextField(JTextField inputTextField, JLabel errorLabel){
@@ -137,7 +126,7 @@ public class MainScreen {
             public void warn() {
                 if (inputTextField.getText().isEmpty())
                     errorLabel.setText("Field is required!");
-                else if (!isInteger(inputTextField.getText()))
+                else if (!Common.isInteger(inputTextField.getText()))
                     errorLabel.setText("Must be a number!");
                 else
                     errorLabel.setText("");
@@ -175,23 +164,8 @@ public class MainScreen {
         JOptionPane.showMessageDialog(null, x);
     }
 
-    private Phone getPhoneByBrand(String brand){
-        switch(brand){
-            case "Huawei":
-                return new Huawei();
-            case "LG":
-                return new LG();
-            case "Nokia":
-                return new Nokia();
-            case "Samsung":
-                return new Samsung();
-            case "Sony":
-                return new Sony();
-            case "iPhone":
-                return new iPhone();
-        }
-
-        return null;
+    public JPanel getAppView(){
+        return appView;
     }
 }
 

@@ -1,15 +1,18 @@
-import GUI.MainScreen;
+import BusinessLogic.Phones;
+import GUI.MainWindow;
 
 import javax.swing.*;
 
 public class Main {
 
+    // Creating & showing a main app window
+    //
     public static void main(String[] args) {
-        //Creating & showing a main app window
+        Phones.initData();
 
         JFrame frame = new JFrame("Phone App");
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        frame.setContentPane(new MainScreen().getAppView());
+        frame.setContentPane(new MainWindow().getAppView());
 
         frame.pack();
         frame.setSize(400,800);
