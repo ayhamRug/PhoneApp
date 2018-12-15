@@ -3,7 +3,6 @@
 //
 public class TODO {
 
-    //TODO: fill Preferable brand from PhoneBrandSelector enum instead of just hardcoding values
     //TODO: add more options for filtering, eg.: touchscreen/buttons, memory capacity and etc.
     //TODO: improve interface(controls location, design)
     //TODO: filtering by performance, design, battery life, camera

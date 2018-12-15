@@ -22,7 +22,7 @@ public class MainWindow {
     private JTextField ageField;
     private JTextField textFieldMax;
     private JTextField textFieldMin;
-    private JComboBox brand;
+    private JComboBox brandComboBox;
     private JRadioButton bigScreen5RadioButton;
     private JRadioButton smallScreen5RadioButton;
     private JCheckBox designCheckBox;
@@ -45,6 +45,14 @@ public class MainWindow {
         ageField.getDocument().addDocumentListener(createDocumentListenerForNumericTextField(ageField, warningAgeTxt));
         textFieldMin.getDocument().addDocumentListener(createDocumentListenerForNumericTextField(textFieldMin, warningMinTxt));
         textFieldMax.getDocument().addDocumentListener(createDocumentListenerForNumericTextField(textFieldMax, warningMaxTxt));
+
+        fillBrandComboBox();
+    }
+
+    private void fillBrandComboBox(){
+        for (Phone.PhoneBrandSelector brand : Phone.PhoneBrandSelector.values()) {
+            brandComboBox.addItem(brand.toString());
+        }
     }
 
     private boolean validateInput(){
@@ -101,7 +109,7 @@ public class MainWindow {
         int minPrice = Integer.parseInt(textFieldMin.getText());
         int maxPrice = Integer.parseInt(textFieldMax.getText());
 
-        Phone.PhoneBrandSelector selectedBrand = Phone.PhoneBrandSelector.valueOf(brand.getSelectedItem().toString());
+        Phone.PhoneBrandSelector selectedBrand = Phone.PhoneBrandSelector.valueOf(brandComboBox.getSelectedItem().toString());
         new ResultWindow(Phones.getByBrand(selectedBrand), minPrice, maxPrice);
     }
 
@@ -146,7 +154,7 @@ public class MainWindow {
                 "\nMax Price: " +
                 textFieldMax.getText() +
                 "\nBrand: " +
-                brand.getSelectedItem().toString() +
+                brandComboBox.getSelectedItem().toString() +
                 "\nScreen: " +
                 rb+
                 "\nDesign: " +

@@ -123,20 +123,12 @@
           <text value="Preferable brand"/>
         </properties>
       </component>
-      <component id="cddc0" class="javax.swing.JComboBox" binding="brand">
+      <component id="cddc0" class="javax.swing.JComboBox" binding="brandComboBox">
         <constraints>
           <grid row="10" column="0" row-span="1" col-span="4" vsize-policy="0" hsize-policy="2" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
         </constraints>
         <properties>
-          <model>
-            <item value="Any"/>
-            <item value="Huawei"/>
-            <item value="LG"/>
-            <item value="Nokia"/>
-            <item value="Samsung"/>
-            <item value="Sony"/>
-            <item value="Apple"/>
-          </model>
+          <model/>
         </properties>
       </component>
       <component id="e139a" class="javax.swing.JLabel">
