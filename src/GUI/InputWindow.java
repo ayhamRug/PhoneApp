@@ -110,7 +110,7 @@ public class InputWindow extends JFrame {
         public void changed () {
             String regex = "\\d+";
             if (max.getText().equals("") || min.getText().equals("")) {
-                submit.setVisible(false);
+                submit.setEnabled(false);
                 budgetFieldRequired.setText("*these fields are required!");
                 budgetFieldRequired.setVisible(true);
             } else {
@@ -120,12 +120,12 @@ public class InputWindow extends JFrame {
                 } else {
                     budgetFieldRequired.setVisible(false);
                     if (age.getText().matches(regex)) {
-                        submit.setVisible(true);
+                        submit.setEnabled(true);
                     }
                 }
             }
             if (age.getText().equals("")) {
-                submit.setVisible(false);
+                submit.setEnabled(false);
                 ageFieldRequired.setText("*this field is required!");
                 ageFieldRequired.setVisible(true);
             } else {
@@ -135,7 +135,7 @@ public class InputWindow extends JFrame {
                 } else {
                     ageFieldRequired.setVisible(false);
                     if (max.getText().matches(regex) && min.getText().matches(regex)) {
-                        submit.setVisible(true);
+                        submit.setEnabled(true);
                     }
                 }
             }
@@ -159,7 +159,7 @@ public class InputWindow extends JFrame {
         public void changed () {
             String regex = "\\d+";
             if (max.getText().equals("") || min.getText().equals("")) {
-                submit.setVisible(false);
+                submit.setEnabled(false);
                 budgetFieldRequired.setText("*these fields are required!");
                 budgetFieldRequired.setVisible(true);
             } else {
@@ -169,12 +169,12 @@ public class InputWindow extends JFrame {
                 } else {
                     budgetFieldRequired.setVisible(false);
                     if (age.getText().matches(regex)) {
-                        submit.setVisible(true);
+                        submit.setEnabled(true);
                     }
                 }
             }
             if (age.getText().equals("")) {
-                submit.setVisible(false);
+                submit.setEnabled(false);
                 ageFieldRequired.setText("*this field is required!");
                 ageFieldRequired.setVisible(true);
             } else {
@@ -184,7 +184,7 @@ public class InputWindow extends JFrame {
                 } else {
                     ageFieldRequired.setVisible(false);
                     if (max.getText().matches(regex) && min.getText().matches(regex)) {
-                        submit.setVisible(true);
+                        submit.setEnabled(true);
                     }
                 }
             }
@@ -213,7 +213,7 @@ public class InputWindow extends JFrame {
         public void changed () {
             String regex = "\\d+";
             if (max.getText().equals("") || min.getText().equals("")) {
-                submit.setVisible(false);
+                submit.setEnabled(false);
                 budgetFieldRequired.setText("*these fields are required!");
                 budgetFieldRequired.setVisible(true);
             } else {
@@ -223,12 +223,12 @@ public class InputWindow extends JFrame {
                 } else {
                     budgetFieldRequired.setVisible(false);
                     if (age.getText().matches(regex)) {
-                        submit.setVisible(true);
+                        submit.setEnabled(true);
                     }
                 }
             }
             if (age.getText().equals("")) {
-                submit.setVisible(false);
+                submit.setEnabled(false);
                 ageFieldRequired.setText("*this field is required!");
                 ageFieldRequired.setVisible(true);
             } else {
@@ -238,7 +238,7 @@ public class InputWindow extends JFrame {
                 } else {
                     ageFieldRequired.setVisible(false);
                     if (max.getText().matches(regex) && min.getText().matches(regex)) {
-                        submit.setVisible(true);
+                        submit.setEnabled(true);
                     }
                 }
             }
@@ -279,9 +279,9 @@ public class InputWindow extends JFrame {
         otherLabel.setFont(otherLabel.getFont().deriveFont(otherLabel.getFont().getSize() + 3f));
 
         //---- submit ----
-        submit.setText("Submit");
-        submit.setVisible(false);
+        submit.setText("Search");
         submit.addActionListener(e -> submitActionPerformed(e));
+        submit.setEnabled(false);
 
         //---- label1 ----
         label1.setText("Dual sim capability?");
