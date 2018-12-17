@@ -6,36 +6,18 @@
     </artifacts-to-build>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c81671ab-2e3d-4f26-b1bc-3f5ddfb0ce82" name="Default" comment="Ayham: Create repository and added first interface.">
-      <change afterPath="$PROJECT_DIR$/src/BusinessLogic/Phones/Phone.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/BusinessLogic/SomeClass.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Main.java" afterDir="false" />
+    <list default="true" id="c81671ab-2e3d-4f26-b1bc-3f5ddfb0ce82" name="Default" comment="-">
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/PhoneApp/Huawei.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/PhoneApp/LG.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/PhoneApp/META-INF/MANIFEST.MF" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/PhoneApp/META-INF/MANIFEST.MF" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/PhoneApp/MainScreen$1.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/PhoneApp/MainScreen$2.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/PhoneApp/MainScreen$3.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/PhoneApp/MainScreen$4.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/PhoneApp/MainScreen.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/PhoneApp/Nokia.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/PhoneApp/Result.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/PhoneApp/Samsung.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/PhoneApp/Sony.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/PhoneApp/iPhone.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Huawei.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/BusinessLogic/Phones/Huawei.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/LG.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/BusinessLogic/Phones/LG.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/META-INF/MANIFEST.MF" beforeDir="false" afterPath="$PROJECT_DIR$/src/META-INF/MANIFEST.MF" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/MainScreen.form" beforeDir="false" afterPath="$PROJECT_DIR$/src/GUI/MainScreen.form" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/MainScreen.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/GUI/MainScreen.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Nokia.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/BusinessLogic/Phones/Nokia.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Result.form" beforeDir="false" afterPath="$PROJECT_DIR$/src/GUI/Result.form" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Result.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/GUI/Result.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Samsung.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/BusinessLogic/Phones/Samsung.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Sony.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/BusinessLogic/Phones/Sony.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/iPhone.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/BusinessLogic/Phones/iPhone.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/PhoneApp/BusinessLogic/Phone$PhoneBrandSelector.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/PhoneApp/BusinessLogic/Phone.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/PhoneApp/BusinessLogic/Phones.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/PhoneApp/Common/Common.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/PhoneApp/GUI/ResultWindow.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/PhoneApp/Main.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/PhoneApp/TODO.class" beforeDir="false" />
     </list>
+    <list id="b0e3fe4f-9d40-4999-8ebb-e730ec1115a2" name="gitignore" comment="-" />
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -43,17 +25,56 @@
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
+  <component name="FUSProjectUsageTrigger">
+    <session id="-1743339576">
+      <usages-collector id="statistics.lifecycle.project">
+        <counts>
+          <entry key="project.closed" value="3" />
+          <entry key="project.open.time.0" value="1" />
+          <entry key="project.open.time.1" value="1" />
+          <entry key="project.open.time.10" value="1" />
+          <entry key="project.opened" value="3" />
+        </counts>
+      </usages-collector>
+      <usages-collector id="statistics.file.extensions.open">
+        <counts>
+          <entry key="MF" value="1" />
+          <entry key="form" value="3" />
+          <entry key="java" value="36" />
+          <entry key="jfd" value="3" />
+        </counts>
+      </usages-collector>
+      <usages-collector id="statistics.file.types.open">
+        <counts>
+          <entry key="GUI_DESIGNER_FORM" value="3" />
+          <entry key="JAVA" value="36" />
+          <entry key="Manifest" value="1" />
+          <entry key="PLAIN_TEXT" value="3" />
+        </counts>
+      </usages-collector>
+      <usages-collector id="statistics.file.extensions.edit">
+        <counts>
+          <entry key="MF" value="2" />
+          <entry key="java" value="2711" />
+          <entry key="txt" value="20" />
+        </counts>
+      </usages-collector>
+      <usages-collector id="statistics.file.types.edit">
+        <counts>
+          <entry key="JAVA" value="2711" />
+          <entry key="Manifest" value="2" />
+          <entry key="PLAIN_TEXT" value="20" />
+        </counts>
+      </usages-collector>
+    </session>
+  </component>
   <component name="FileEditorManager">
-    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+    <leaf>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/Main.java">
+        <entry file="file://$PROJECT_DIR$/src/PhoneDatabase/Phone.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="34">
-              <caret line="2" column="19" selection-start-line="2" selection-start-column="19" selection-end-line="2" selection-end-column="19" />
-              <folding>
-                <element signature="e#276#277#0" expanded="true" />
-                <element signature="e#309#310#0" expanded="true" />
-              </folding>
+              <caret line="2" column="13" selection-start-line="2" selection-start-column="13" selection-end-line="2" selection-end-column="13" />
             </state>
           </provider>
         </entry>
@@ -61,13 +82,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/BusinessLogic/Phone.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="672">
-              <caret line="69" column="32" selection-start-line="69" selection-start-column="32" selection-end-line="69" selection-end-column="32" />
-              <folding>
-                <element signature="e#1830#1831#0" expanded="true" />
-                <element signature="e#1867#1868#0" expanded="true" />
-                <element signature="e#1900#1901#0" expanded="true" />
-              </folding>
+            <state relative-caret-position="-221">
+              <caret line="2" column="13" selection-start-line="2" selection-start-column="13" selection-end-line="2" selection-end-column="13" />
             </state>
           </provider>
         </entry>
@@ -75,84 +91,63 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/BusinessLogic/Phones.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="884">
-              <caret line="52" column="131" selection-start-line="52" selection-start-column="131" selection-end-line="52" selection-end-column="131" />
+            <state relative-caret-position="-252">
+              <caret line="4" column="13" selection-start-line="4" selection-start-column="13" selection-end-line="4" selection-end-column="13" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/PhoneDatabase/Phones.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="68">
+              <caret line="4" column="13" selection-start-line="4" selection-start-column="13" selection-end-line="4" selection-end-column="13" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/Main.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="119">
+              <caret line="7" column="31" selection-start-line="7" selection-start-column="31" selection-end-line="7" selection-end-column="31" />
               <folding>
-                <element signature="e#604#611#0" expanded="true" />
+                <element signature="e#140#141#0" expanded="true" />
+                <element signature="e#186#187#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/GUI/InputWindow.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="141">
+              <caret line="16" column="16" selection-start-line="16" selection-start-column="16" selection-end-line="16" selection-end-column="16" />
+              <folding>
+                <element signature="e#0#21960#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/GUI/ResultWindow.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1190">
-              <caret line="79" column="47" selection-start-line="79" selection-start-column="47" selection-end-line="79" selection-end-column="47" />
-              <folding>
-                <element signature="e#3125#3126#0" expanded="true" />
-                <element signature="e#328#415#0" />
-                <marker date="1545053603671" expanded="true" signature="3172:5522" ph="// JFormDesigner - Component initialization - DO NOT MODIFY" />
-                <marker date="1545053603671" expanded="false" signature="5534:5834" ph="// JFormDesigner - Variables declaration - DO NOT MODIFY" />
-              </folding>
+            <state relative-caret-position="102">
+              <caret line="15" column="13" selection-start-line="15" selection-start-column="13" selection-end-line="15" selection-end-column="13" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/GUI/ResultWindow.jfd">
-          <provider selected="true" editor-type-id="JFormDesigner" />
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/GUI/InputWindow.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="697">
-              <caret line="45" selection-start-line="45" selection-end-line="45" />
-              <folding>
-                <element signature="imports" expanded="true" />
-                <element signature="e#2897#2898#0" expanded="true" />
-                <element signature="e#2930#2931#0" expanded="true" />
-                <element signature="e#2982#2983#0" expanded="true" />
-                <element signature="e#3015#3016#0" expanded="true" />
-                <element signature="e#3067#3068#0" expanded="true" />
-                <element signature="e#3100#3101#0" expanded="true" />
-                <element signature="e#4889#4890#0" expanded="true" />
-                <element signature="e#4922#4923#0" expanded="true" />
-                <element signature="e#4974#4975#0" expanded="true" />
-                <element signature="e#5007#5008#0" expanded="true" />
-                <element signature="e#5059#5060#0" expanded="true" />
-                <element signature="e#5092#5093#0" expanded="true" />
-                <element signature="e#7088#7089#0" expanded="true" />
-                <element signature="e#7121#7122#0" expanded="true" />
-                <element signature="e#7173#7174#0" expanded="true" />
-                <element signature="e#7206#7207#0" expanded="true" />
-                <element signature="e#7258#7259#0" expanded="true" />
-                <element signature="e#7291#7292#0" expanded="true" />
-                <marker date="1545052872944" expanded="true" signature="1637:21052" ph="// JFormDesigner - Component initialization - DO NOT MODIFY" />
-                <marker date="1545052872944" expanded="false" signature="21064:21957" ph="// JFormDesigner - Variables declaration - DO NOT MODIFY" />
-              </folding>
-            </state>
-          </provider>
+          <provider selected="true" editor-type-id="text-editor" />
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/GUI/InputWindow.jfd">
-          <provider selected="true" editor-type-id="JFormDesigner">
-            <state propertiesWidth="400" />
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/TODO.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="408">
-              <caret line="24" column="48" selection-start-line="24" selection-start-column="48" selection-end-line="24" selection-end-column="48" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
+          <provider selected="true" editor-type-id="text-editor" />
         </entry>
       </file>
     </leaf>
@@ -172,9 +167,6 @@
       <find>x,</find>
       <find>\n</find>
       <find>appView</find>
-      <find>brandC</find>
-      <find>fillBrand</find>
-      <find>a</find>
     </findStrings>
     <replaceStrings>
       <replace>arr</replace>
@@ -199,6 +191,7 @@
         <option value="$PROJECT_DIR$/src/Result.form" />
         <option value="$PROJECT_DIR$/src/Result.java" />
         <option value="$PROJECT_DIR$/src/BusinessLogic/Sony.java" />
+        <option value="$PROJECT_DIR$/src/Main.java" />
         <option value="$PROJECT_DIR$/src/META-INF/MANIFEST.MF" />
         <option value="$PROJECT_DIR$/src/GUI/MainScreen.form" />
         <option value="$PROJECT_DIR$/src/BusinessLogic/Phones/Huawei.java" />
@@ -210,27 +203,23 @@
         <option value="$PROJECT_DIR$/src/GUI/Result.java" />
         <option value="$PROJECT_DIR$/src/BusinessLogic/Phones/Phone.java" />
         <option value="$PROJECT_DIR$/src/GUI/MainScreen.java" />
-        <option value="$PROJECT_DIR$/src/GUI/MainWindow.java" />
-        <option value="$PROJECT_DIR$/src/GUI/MainWindow.form" />
-        <option value="$PROJECT_DIR$/src/GUI/MainWindow2.jfd" />
-        <option value="$PROJECT_DIR$/src/GUI/Results.java" />
-        <option value="$PROJECT_DIR$/src/GUI/Results.jfd" />
-        <option value="$PROJECT_DIR$/src/GUI/MainWindow2.java" />
-        <option value="$PROJECT_DIR$/src/Main.java" />
-        <option value="$PROJECT_DIR$/src/GUI/InputWindow.jfd" />
-        <option value="$PROJECT_DIR$/src/GUI/ResultWindow.jfd" />
-        <option value="$PROJECT_DIR$/src/BusinessLogic/Phones.java" />
-        <option value="$PROJECT_DIR$/src/TODO.java" />
-        <option value="$PROJECT_DIR$/src/GUI/InputWindow.java" />
-        <option value="$PROJECT_DIR$/src/BusinessLogic/Phone.java" />
-        <option value="$PROJECT_DIR$/src/GUI/ResultWindow.java" />
       </list>
     </option>
   </component>
-  <component name="ProjectFrameBounds" extendedState="7">
-    <option name="x" value="1273" />
-    <option name="width" value="1294" />
-    <option name="height" value="1407" />
+  <component name="JsBuildToolGruntFileManager" detection-done="true" sorting="DEFINITION_ORDER" />
+  <component name="JsBuildToolPackageJson" detection-done="true" sorting="DEFINITION_ORDER" />
+  <component name="JsGulpfileManager">
+    <detection-done>true</detection-done>
+    <sorting>DEFINITION_ORDER</sorting>
+  </component>
+  <component name="NodePackageJsonFileManager">
+    <packageJsonPaths />
+  </component>
+  <component name="ProjectFrameBounds" extendedState="6">
+    <option name="x" value="-10" />
+    <option name="y" value="-10" />
+    <option name="width" value="1940" />
+    <option name="height" value="1050" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectView">
@@ -239,6 +228,8 @@
     </navigator>
     <panes>
       <pane id="Scope" />
+      <pane id="PackagesPane" />
+      <pane id="AndroidView" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -255,32 +246,19 @@
               <item name="PhoneApp" type="b2602c69:ProjectViewProjectNode" />
               <item name="PhoneApp" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="BusinessLogic" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="PhoneApp" type="b2602c69:ProjectViewProjectNode" />
-              <item name="PhoneApp" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="Common" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="PhoneApp" type="b2602c69:ProjectViewProjectNode" />
-              <item name="PhoneApp" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="GUI" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
         </subPane>
       </pane>
-      <pane id="PackagesPane" />
     </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="SearchEverywhereHistoryKey" value="&#9;FILE&#9;file://D:/AI/3rd Year/2- PKT/PhoneApp/src/MainScreen.form" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1545053641481" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1545060636345" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/.." />
     <property name="project.structure.last.edited" value="Project" />
     <property name="project.structure.proportion" value="0.15" />
@@ -326,8 +304,8 @@
       </method>
     </configuration>
     <list>
-      <item itemvalue="Application.MainScreen" />
       <item itemvalue="Application.Main" />
+      <item itemvalue="Application.MainScreen" />
     </list>
     <recent_temporary>
       <list>
@@ -342,6 +320,7 @@
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
       <changelist id="c81671ab-2e3d-4f26-b1bc-3f5ddfb0ce82" name="Default" comment="" />
+      <changelist id="b0e3fe4f-9d40-4999-8ebb-e730ec1115a2" name="gitignore" comment="" />
       <created>1543851722866</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
@@ -350,19 +329,6 @@
       <workItem from="1543857739536" duration="207000" />
       <workItem from="1544368622839" duration="17695000" />
       <workItem from="1544393857376" duration="548000" />
-      <workItem from="1544987584306" duration="7137000" />
-      <workItem from="1544994770565" duration="1300000" />
-      <workItem from="1544996869016" duration="76000" />
-      <workItem from="1544996993732" duration="39000" />
-      <workItem from="1544997052198" duration="211000" />
-      <workItem from="1544997281913" duration="32000" />
-      <workItem from="1544997333127" duration="58000" />
-      <workItem from="1544997411264" duration="17000" />
-      <workItem from="1544133490524" duration="56000" />
-      <workItem from="1544997570660" duration="35000" />
-      <workItem from="1544997625805" duration="26000" />
-      <workItem from="1545256870011" duration="57000" />
-      <workItem from="1544997749610" duration="20111000" />
     </task>
     <task id="LOCAL-00001" summary="Ayham: Create repository and added first interface.">
       <created>1543856384989</created>
@@ -378,17 +344,37 @@
       <option name="project" value="LOCAL" />
       <updated>1543857761596</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="-">
+      <created>1545056983613</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1545056983613</updated>
+    </task>
+    <task id="LOCAL-00004" summary="-">
+      <created>1545057004166</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1545057004166</updated>
+    </task>
+    <task id="LOCAL-00005" summary="-">
+      <created>1545057076569</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1545057076569</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="53347000" />
+    <option name="totallyTimeSpent" value="24192000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="2576" height="1416" extended-state="6" />
-    <editor active="true" />
+    <frame x="-7" y="-7" width="1550" height="838" extended-state="6" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.18124007" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.19798657" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Image Layers" order="2" />
       <window_info id="Designer" order="3" />
@@ -397,17 +383,16 @@
       <window_info id="Favorites" order="6" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.32907802" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" sideWeight="0.49523053" visible="true" weight="0.1340608" />
+      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.4986577" weight="0.32907802" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" />
-      <window_info anchor="bottom" id="Version Control" order="7" weight="0.32943678" />
+      <window_info anchor="bottom" id="Version Control" order="7" sideWeight="0.4986577" weight="0.32907802" />
       <window_info anchor="bottom" id="Database Changes" order="8" show_stripe_button="false" />
       <window_info anchor="bottom" id="Terminal" order="9" />
-      <window_info anchor="bottom" id="Event Log" order="10" sideWeight="0.5047695" side_tool="true" visible="true" weight="0.1340608" />
-      <window_info anchor="bottom" id="Messages" order="11" sideWeight="0.49324325" weight="0.3289166" />
-      <window_info anchor="bottom" id="Docker" order="12" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Event Log" order="10" sideWeight="0.5013423" side_tool="true" visible="true" weight="0.32907802" />
+      <window_info anchor="bottom" id="Messages" order="11" weight="0.32907802" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
@@ -417,15 +402,49 @@
       <window_info anchor="right" id="Database" order="6" />
       <window_info anchor="right" id="Palette&#9;" order="7" />
       <window_info anchor="right" id="Maven Projects" order="8" />
-      <window_info anchor="right" id="Maven" order="9" />
     </layout>
+    <layout-to-restore>
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.18456376" />
+      <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
+      <window_info id="Image Layers" order="2" />
+      <window_info id="Designer" order="3" />
+      <window_info id="UI Designer" order="4" />
+      <window_info id="Capture Tool" order="5" />
+      <window_info id="Favorites" order="6" side_tool="true" />
+      <window_info anchor="bottom" id="Message" order="0" />
+      <window_info anchor="bottom" id="Find" order="1" weight="0.32907802" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.32907802" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
+      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
+      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
+      <window_info anchor="bottom" id="TODO" order="6" />
+      <window_info anchor="bottom" id="Version Control" order="7" weight="0.32943678" />
+      <window_info anchor="bottom" id="Database Changes" order="8" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Terminal" order="9" />
+      <window_info anchor="bottom" id="Event Log" order="10" side_tool="true" weight="0.32943678" />
+      <window_info anchor="bottom" id="Messages" order="11" visible="true" weight="0.32907802" />
+      <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
+      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
+      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
+      <window_info anchor="right" id="Palette" order="3" />
+      <window_info anchor="right" id="Capture Analysis" order="4" />
+      <window_info anchor="right" id="Theme Preview" order="5" />
+      <window_info anchor="right" id="Database" order="6" />
+      <window_info anchor="right" id="Palette&#9;" order="7" />
+      <window_info anchor="right" id="Maven Projects" order="8" />
+    </layout-to-restore>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="1" />
   </component>
+  <component name="VcsContentAnnotationSettings">
+    <option name="myLimit" value="2678400000" />
+  </component>
   <component name="VcsManagerConfiguration">
+    <option name="SHOW_UNVERSIONED_FILES_WHILE_COMMIT" value="false" />
     <MESSAGE value="Ayham: Create repository and added first interface." />
-    <option name="LAST_COMMIT_MESSAGE" value="Ayham: Create repository and added first interface." />
+    <MESSAGE value="-" />
+    <option name="LAST_COMMIT_MESSAGE" value="-" />
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/src/BlackBerry.java" />
@@ -448,147 +467,73 @@
     <entry file="file://$PROJECT_DIR$/src/BusinessLogic/Phones/Phone.java" />
     <entry file="file://$PROJECT_DIR$/src/BusinessLogic/Phones/Nokia.java" />
     <entry file="file://$PROJECT_DIR$/src/GUI/MainScreen.java" />
-    <entry file="file://$PROJECT_DIR$/src/GUI/ResultWindow.form">
-      <provider selected="true" editor-type-id="ui-designer" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/GUI/MainWindow.form">
-      <provider selected="true" editor-type-id="ui-designer" />
-      <provider editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/GUI/MainWindow.java">
+    <entry file="file://$PROJECT_DIR$/src/TODO.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="82">
-          <caret line="89" lean-forward="true" selection-start-line="89" selection-end-line="89" />
+        <state relative-caret-position="51">
+          <caret line="3" column="13" selection-start-line="3" selection-start-column="13" selection-end-line="3" selection-end-column="13" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/GUI/Results.jfd">
-      <provider selected="true" editor-type-id="JFormDesigner" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/GUI/Results.java">
+    <entry file="file://$PROJECT_DIR$/src/GUI/MainWindow.java" />
+    <entry file="file://$PROJECT_DIR$/src/GUI/MainWindow.form" />
+    <entry file="file://$PROJECT_DIR$/src/GUI/ResultWindow.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="255">
-          <caret line="19" column="5" lean-forward="true" selection-start-line="19" selection-start-column="5" selection-end-line="19" selection-end-column="5" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#229#230#0" expanded="true" />
-            <element signature="e#249#250#0" expanded="true" />
-            <element signature="method#initComponents#0;class#Results#0" />
-          </folding>
+        <state relative-caret-position="102">
+          <caret line="15" column="13" selection-start-line="15" selection-start-column="13" selection-end-line="15" selection-end-column="13" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/GUI/MainWindow.jfd">
-      <provider selected="true" editor-type-id="JFormDesigner" />
-      <provider editor-type-id="text-editor" />
+    <entry file="file://$PROJECT_DIR$/src/GUI/ResultWindow.jfd">
+      <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/GUI/MainWindow.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="391">
-          <caret line="27" column="8" lean-forward="true" selection-start-line="27" selection-start-column="8" selection-end-line="27" selection-end-column="40" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
+    <entry file="file://$PROJECT_DIR$/src/GUI/InputWindow.jfd">
+      <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Common/Common.java">
+    <entry file="file://$PROJECT_DIR$/src/PhoneDatabase/Phones.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="68">
           <caret line="4" column="13" selection-start-line="4" selection-start-column="13" selection-end-line="4" selection-end-column="13" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Main.java">
+    <entry file="file://$PROJECT_DIR$/src/PhoneDatabase/Phone.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="34">
-          <caret line="2" column="19" selection-start-line="2" selection-start-column="19" selection-end-line="2" selection-end-column="19" />
-          <folding>
-            <element signature="e#276#277#0" expanded="true" />
-            <element signature="e#309#310#0" expanded="true" />
-          </folding>
+          <caret line="2" column="13" selection-start-line="2" selection-start-column="13" selection-end-line="2" selection-end-column="13" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/TODO.java">
+    <entry file="file://$PROJECT_DIR$/src/BusinessLogic/Phones.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="408">
-          <caret line="24" column="48" selection-start-line="24" selection-start-column="48" selection-end-line="24" selection-end-column="48" />
+        <state relative-caret-position="-252">
+          <caret line="4" column="13" selection-start-line="4" selection-start-column="13" selection-end-line="4" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/BusinessLogic/Phone.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-221">
+          <caret line="2" column="13" selection-start-line="2" selection-start-column="13" selection-end-line="2" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Main.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="119">
+          <caret line="7" column="31" selection-start-line="7" selection-start-column="31" selection-end-line="7" selection-end-column="31" />
           <folding>
-            <element signature="imports" expanded="true" />
+            <element signature="e#140#141#0" expanded="true" />
+            <element signature="e#186#187#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/GUI/InputWindow.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="697">
-          <caret line="45" selection-start-line="45" selection-end-line="45" />
+        <state relative-caret-position="141">
+          <caret line="16" column="16" selection-start-line="16" selection-start-column="16" selection-end-line="16" selection-end-column="16" />
           <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#2897#2898#0" expanded="true" />
-            <element signature="e#2930#2931#0" expanded="true" />
-            <element signature="e#2982#2983#0" expanded="true" />
-            <element signature="e#3015#3016#0" expanded="true" />
-            <element signature="e#3067#3068#0" expanded="true" />
-            <element signature="e#3100#3101#0" expanded="true" />
-            <element signature="e#4889#4890#0" expanded="true" />
-            <element signature="e#4922#4923#0" expanded="true" />
-            <element signature="e#4974#4975#0" expanded="true" />
-            <element signature="e#5007#5008#0" expanded="true" />
-            <element signature="e#5059#5060#0" expanded="true" />
-            <element signature="e#5092#5093#0" expanded="true" />
-            <element signature="e#7088#7089#0" expanded="true" />
-            <element signature="e#7121#7122#0" expanded="true" />
-            <element signature="e#7173#7174#0" expanded="true" />
-            <element signature="e#7206#7207#0" expanded="true" />
-            <element signature="e#7258#7259#0" expanded="true" />
-            <element signature="e#7291#7292#0" expanded="true" />
-            <marker date="1545052872944" expanded="true" signature="1637:21052" ph="// JFormDesigner - Component initialization - DO NOT MODIFY" />
-            <marker date="1545052872944" expanded="false" signature="21064:21957" ph="// JFormDesigner - Variables declaration - DO NOT MODIFY" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/BusinessLogic/Phones.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="884">
-          <caret line="52" column="131" selection-start-line="52" selection-start-column="131" selection-end-line="52" selection-end-column="131" />
-          <folding>
-            <element signature="e#604#611#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/GUI/InputWindow.jfd">
-      <provider selected="true" editor-type-id="JFormDesigner">
-        <state propertiesWidth="400" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/GUI/ResultWindow.jfd">
-      <provider selected="true" editor-type-id="JFormDesigner" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/BusinessLogic/Phone.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="672">
-          <caret line="69" column="32" selection-start-line="69" selection-start-column="32" selection-end-line="69" selection-end-column="32" />
-          <folding>
-            <element signature="e#1830#1831#0" expanded="true" />
-            <element signature="e#1867#1868#0" expanded="true" />
-            <element signature="e#1900#1901#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/GUI/ResultWindow.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1190">
-          <caret line="79" column="47" selection-start-line="79" selection-start-column="47" selection-end-line="79" selection-end-column="47" />
-          <folding>
-            <element signature="e#3125#3126#0" expanded="true" />
-            <element signature="e#328#415#0" />
-            <marker date="1545053603671" expanded="true" signature="3172:5522" ph="// JFormDesigner - Component initialization - DO NOT MODIFY" />
-            <marker date="1545053603671" expanded="false" signature="5534:5834" ph="// JFormDesigner - Variables declaration - DO NOT MODIFY" />
+            <element signature="e#0#21960#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -635,7 +580,7 @@
       </state>
       <state key="JdkListConfigurable.UI">
         <settings>
-          <last-edited>11</last-edited>
+          <last-edited>10</last-edited>
           <splitter-proportions>
             <option name="proportions">
               <list>
