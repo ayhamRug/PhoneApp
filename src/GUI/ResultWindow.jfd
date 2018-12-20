@@ -4,8 +4,8 @@ new FormModel {
 	contentType: "form/swing"
 	root: new FormRoot {
 		add( new FormWindow( "javax.swing.JFrame", new FormLayoutManager( class org.jdesktop.layout.GroupLayout ) {
-			"$horizontalGroup": "par l {seq l {space :p:22:p, par t {comp label6:::p::p, comp Title:::p::p}, space ::229:x}, seq t {space ::22:x, comp phonesFound:::p:478:p, space ::38:x}}"
-			"$verticalGroup": "par l {seq l {space :::p, comp Title:::p::p, space u:::p, comp label6:::p::p, space :p:29:p, comp phonesFound:::p:188:p, space ::106:x}}"
+			"$horizontalGroup": "par l {seq {space :22:22:p, par t {comp label6:::p::p, comp Title:::p::p}, space ::409:x}, seq t {space ::597:x, comp restart:::p::p, space :p:43:p}, seq t {space :::p, comp scrollPane1::::712:x}}"
+			"$verticalGroup": "par l {seq l {space :::p, comp Title:::p::p, space u:::p, comp label6:::p::p, space :p:32:p, comp scrollPane1:::p:577:p, space ::8:x, comp restart:::p::p, space :::p}}"
 		} ) {
 			name: "this"
 			"title": "Phone App - Results"
@@ -18,13 +18,22 @@ new FormModel {
 				name: "label6"
 				"text": "Based on your search paramaters, these are the results:"
 			} )
-			add( new FormComponent( "javax.swing.JLabel" ) {
-				name: "phonesFound"
-				"text": "text"
+			add( new FormContainer( "javax.swing.JScrollPane", new FormLayoutManager( class javax.swing.JScrollPane ) ) {
+				name: "scrollPane1"
+				"horizontalScrollBarPolicy": 31
+				add( new FormComponent( "javax.swing.JLabel" ) {
+					name: "phonesFound"
+					"text": "text"
+					"horizontalAlignment": 0
+				} )
+			} )
+			add( new FormComponent( "javax.swing.JButton" ) {
+				name: "restart"
+				"text": "Search again"
 			} )
 		}, new FormLayoutConstraints( null ) {
 			"location": new java.awt.Point( 0, 0 )
-			"size": new java.awt.Dimension( 540, 410 )
+			"size": new java.awt.Dimension( 720, 740 )
 		} )
 	}
 }

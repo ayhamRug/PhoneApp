@@ -42,10 +42,11 @@ public class Phone {
     private boolean expandableStorage;
     private boolean dualSim;
     private boolean waterproof;
+    private String img;
 
     public Phone(PhoneBrandSelector brand, String model, float price, float screenSize, int ageSuitabilityScore,
                  int designScore, int performanceScore, int batteryScore, int cameraScore, boolean expandableStorage,
-                 boolean dualSim, boolean waterproof){
+                 boolean dualSim, boolean waterproof, String img){
         this.brand = brand;
         this.model = model;
         this.price = price;
@@ -58,6 +59,7 @@ public class Phone {
         this.expandableStorage = expandableStorage;
         this.dualSim = dualSim;
         this.waterproof = waterproof;
+        this.img = img;
     }
 
     // getters
@@ -109,5 +111,9 @@ public class Phone {
 
     public String getModel(){
         return model;
+    }
+
+    public String getImg(){
+        return img;
     }
 }

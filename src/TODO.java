@@ -21,8 +21,11 @@ public class TODO {
     //TODO: add way more phones in the database and soft the phones according to their score if one option from "Preference" is selected.
 
     //TODO: add phone photos
+    //DONE!
 
     //TODO: should print only one or two options
 
+    //TODO: Search again button
+    //DONE!
 
 }

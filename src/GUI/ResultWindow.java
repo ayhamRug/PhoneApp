@@ -8,12 +8,23 @@ import BusinessLogic.Phone;
 import BusinessLogic.Phones;
 
 import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.io.File;
 import java.lang.reflect.Array;
+import java.net.URL;
 import java.util.ArrayList;
 import javax.swing.*;
 import javax.swing.GroupLayout;
 
 public class ResultWindow extends JFrame {
+
+
+    private void restartActionPerformed(ActionEvent e){
+
+        new InputWindow().showWindow();
+        this.setVisible(false);
+    }
+
     public void showWindow(int min, int max, int age, String brand, int expStorage, int displaySize, int dualSim, int waterproof) {
 
         this.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
@@ -21,6 +32,8 @@ public class ResultWindow extends JFrame {
         this.pack();
         this.setResizable(false);
         this.setVisible(true);
+        scrollPane1.getVerticalScrollBar().setUnitIncrement(20);
+        restart.addActionListener(e -> restartActionPerformed(e));
 
         ArrayList<Phone> phones = new Phones().getPhones();
 
@@ -32,7 +45,7 @@ public class ResultWindow extends JFrame {
         }
         if(brand!="Any" && phones.size()>0) {
             for(int i=0; i<phones.size(); i++) {
-                if(phones.get(i).getBrand().toString()!=brand) {
+                if(!phones.get(i).getBrand().toString().equals(brand)) {
                     phones.remove(i);
                     i--;
                 }
@@ -86,10 +99,41 @@ public class ResultWindow extends JFrame {
 
         if(phones.size()==0) phonesFound.setText("<html>Nothing has been found unfortunately!<br>Please adjust your parameters and try again.</html>");
         else {
-            phonesFound.setText("<html>");
+            phonesFound.setText("<html><style type='text/css'>" +
+                    "..tg  {border-collapse:collapse;border-spacing:0;} " +
+                    ".tg td{font-family:Arial, sans-serif;font-size:14px;padding:10px 5px;border-style:solid;border-width:1px;overflow:hidden;word-break:normal;border-color:black;} " +
+                    ".tg th{font-family:Arial, sans-serif;font-size:14px;font-weight:normal;padding:10px 5px;border-style:solid;border-width:1px;overflow:hidden;word-break:normal;border-color:black;} " +
+                    ".tg .tg-baqh{text-align:center;vertical-align:top}" +
+                    "</style>");
+
+
+            phonesFound.setText(phonesFound.getText() + "<center><table class='tg'>" );
+
             for(int i=0;i<phones.size();i++) {
-                phonesFound.setText(phonesFound.getText()+phones.get(i).getModel()+" Price: "+phones.get(i).getPrice()+"<br>");
+                URL f = ClassLoader.getSystemResource(phones.get(i).getImg());
+                phonesFound.setText(phonesFound.getText()+
+
+                        "<tr> " +
+                        "<th class= tg-baqh  colspan= 2 >" +
+                                phones.get(i).getModel() +
+                        "</th>" +
+                        "</tr>" +
+                        "<tr>" +
+                        "<th class='tg-0lax'>" +
+                                "<img src='" + f.toString()+ "'></img>" +
+                        "</th>" +
+                        "<th class='tg-0lax'>" +
+                                "Price: "+phones.get(i).getPrice() +
+                        "</th>" +
+                        "</tr>"
+                        );
             }
+
+            phonesFound.setText(phonesFound.getText() +
+                    "</table></center>");
+
+
+
             phonesFound.setText(phonesFound.getText()+"</html>");
         }
 
@@ -101,10 +145,12 @@ public class ResultWindow extends JFrame {
 
     private void initComponents() {
         // JFormDesigner - Component initialization - DO NOT MODIFY  //GEN-BEGIN:initComponents
-        // Generated using JFormDesigner Evaluation license - Name
+        // Generated using JFormDesigner Evaluation license - Ayham
         Title = new JLabel();
         label6 = new JLabel();
+        scrollPane1 = new JScrollPane();
         phonesFound = new JLabel();
+        restart = new JButton();
 
         //======== this ========
         setTitle("Phone App - Results");
@@ -117,8 +163,18 @@ public class ResultWindow extends JFrame {
         //---- label6 ----
         label6.setText("Based on your search paramaters, these are the results:");
 
-        //---- phonesFound ----
-        phonesFound.setText("text");
+        //======== scrollPane1 ========
+        {
+            scrollPane1.setHorizontalScrollBarPolicy(ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);
+
+            //---- phonesFound ----
+            phonesFound.setText("text");
+            phonesFound.setHorizontalAlignment(SwingConstants.CENTER);
+            scrollPane1.setViewportView(phonesFound);
+        }
+
+        //---- restart ----
+        restart.setText("Search again");
 
         GroupLayout contentPaneLayout = new GroupLayout(contentPane);
         contentPane.setLayout(contentPaneLayout);
@@ -129,11 +185,14 @@ public class ResultWindow extends JFrame {
                     .addGroup(contentPaneLayout.createParallelGroup(GroupLayout.Alignment.TRAILING)
                         .addComponent(label6)
                         .addComponent(Title))
-                    .addContainerGap(229, Short.MAX_VALUE))
+                    .addContainerGap(409, Short.MAX_VALUE))
                 .addGroup(GroupLayout.Alignment.TRAILING, contentPaneLayout.createSequentialGroup()
-                    .addContainerGap(22, Short.MAX_VALUE)
-                    .addComponent(phonesFound, GroupLayout.PREFERRED_SIZE, 478, GroupLayout.PREFERRED_SIZE)
-                    .addContainerGap(38, Short.MAX_VALUE))
+                    .addContainerGap(597, Short.MAX_VALUE)
+                    .addComponent(restart)
+                    .addGap(43, 43, 43))
+                .addGroup(GroupLayout.Alignment.TRAILING, contentPaneLayout.createSequentialGroup()
+                    .addContainerGap()
+                    .addComponent(scrollPane1, GroupLayout.DEFAULT_SIZE, 712, Short.MAX_VALUE))
         );
         contentPaneLayout.setVerticalGroup(
             contentPaneLayout.createParallelGroup()
@@ -142,9 +201,11 @@ public class ResultWindow extends JFrame {
                     .addComponent(Title)
                     .addPreferredGap(LayoutStyle.ComponentPlacement.UNRELATED)
                     .addComponent(label6)
-                    .addGap(29, 29, 29)
-                    .addComponent(phonesFound, GroupLayout.PREFERRED_SIZE, 188, GroupLayout.PREFERRED_SIZE)
-                    .addContainerGap(106, Short.MAX_VALUE))
+                    .addGap(32, 32, 32)
+                    .addComponent(scrollPane1, GroupLayout.PREFERRED_SIZE, 577, GroupLayout.PREFERRED_SIZE)
+                    .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED, 8, Short.MAX_VALUE)
+                    .addComponent(restart)
+                    .addContainerGap())
         );
         pack();
         setLocationRelativeTo(getOwner());
@@ -152,9 +213,11 @@ public class ResultWindow extends JFrame {
     }
 
     // JFormDesigner - Variables declaration - DO NOT MODIFY  //GEN-BEGIN:variables
-    // Generated using JFormDesigner Evaluation license - Name
+    // Generated using JFormDesigner Evaluation license - Ayham
     private JLabel Title;
     private JLabel label6;
+    private JScrollPane scrollPane1;
     private JLabel phonesFound;
+    private JButton restart;
     // JFormDesigner - End of variables declaration  //GEN-END:variables
 }
