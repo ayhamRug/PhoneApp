@@ -45,12 +45,18 @@ public class StageFour extends JFrame {
             this.pack();
             this.setResizable(false);
             this.setVisible(true);
+
             initComponents();
+
+            if(rearCamerasValue != 1) rearCameraNumber.setEnabled(false);
+            if(fingerprintValue != 1) fingerprintLocation.setEnabled(false);
+
+
         } else if (stage==4 && rearCamerasValue != 1 && fingerprintValue != 1) {
             new ResultWindow().showWindowStage3_2(budget,touchscreen,expandableStorage,dualSim,preferredBrand,displaySize,waterproof,rearCameras,fingerprint);
             this.dispose();
         } else if (stage>4 && rearCamerasValue != 1 && fingerprintValue != 1) {
-            new StageFive(stage, budget, touchscreen,expandableStorage, dualSim, preferredBrand, displaySize, fingerprint,rearCameras,waterproof,4,5); //to check
+            new StageFive(stage, budget, touchscreen,expandableStorage, dualSim, preferredBrand, displaySize, fingerprint,rearCameras,waterproof,4,5);
         }
     }
 

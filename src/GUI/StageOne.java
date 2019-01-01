@@ -78,15 +78,19 @@ public class StageOne extends JFrame {
         if(stage == 1) {
             new ResultWindow().showWindowStage1(budget,touchscreen.getSelectedIndex(),expandableStorage.getSelectedIndex(),dualSim.getSelectedIndex());
             this.dispose();
+            dialog1.setVisible(false);
         } else if (stage == 2 && next.getText()=="Search") {
             new ResultWindow().showWindowStage1(budget,touchscreen.getSelectedIndex(),expandableStorage.getSelectedIndex(),dualSim.getSelectedIndex());
             this.dispose();
+            dialog1.setVisible(false);
         } else if (stage == 2 && next.getText()=="Next") {
             new StageTwo(stage, budget, touchscreen.getSelectedIndex(), expandableStorage.getSelectedIndex(), dualSim.getSelectedIndex());
             this.dispose();
+            dialog1.setVisible(false);
         } else if (stage>2) {
             new StageTwo(stage, budget, touchscreen.getSelectedIndex(), expandableStorage.getSelectedIndex(), dualSim.getSelectedIndex());
             this.dispose();
+            dialog1.setVisible(false);
         }
 
     }
@@ -245,9 +249,9 @@ public class StageOne extends JFrame {
                                     .addComponent(touchscreen, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)))
                             .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
                             .addGroup(contentPaneLayout.createParallelGroup(GroupLayout.Alignment.TRAILING)
-                                .addComponent(phoneTypeQuestion, GroupLayout.DEFAULT_SIZE, 44, Short.MAX_VALUE)
                                 .addComponent(dualSimQuestion, GroupLayout.Alignment.LEADING, GroupLayout.DEFAULT_SIZE, 1, Short.MAX_VALUE)
-                                .addComponent(expStorageQuestion, GroupLayout.Alignment.LEADING, GroupLayout.DEFAULT_SIZE, 44, Short.MAX_VALUE))))
+                                .addComponent(expStorageQuestion, GroupLayout.Alignment.LEADING, GroupLayout.DEFAULT_SIZE, 44, Short.MAX_VALUE)
+                                .addComponent(phoneTypeQuestion, GroupLayout.DEFAULT_SIZE, 44, Short.MAX_VALUE))))
                     .addContainerGap())
         );
         contentPaneLayout.setVerticalGroup(

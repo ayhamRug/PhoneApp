@@ -4,8 +4,8 @@ new FormModel {
 	contentType: "form/swing"
 	root: new FormRoot {
 		add( new FormWindow( "javax.swing.JFrame", new FormLayoutManager( class org.jdesktop.layout.GroupLayout ) {
-			"$horizontalGroup": "par l {seq {space :::p, par l {seq {par l {comp label1::l:p::p, seq l {comp label2:::p::p, space :::p, comp faceRecognition:::p::p}}, space ::84:x}, seq {par l {seq l {comp label3:::p::p, space :::p, comp pen:::p::p}, seq l {comp label4:::p::p, space :::p, comp connector:::p::p}, seq l {comp label5:::p::p, space :::p, comp headphoneJack:::p::p}, seq l {space :p:10:p, comp next:::p::p}}, space :0:74:x}}}}"
-			"$verticalGroup": "par l {seq l {space :::p, comp label1:::p::p, space u:::p, par b {comp label2::b:p::p, comp faceRecognition::b:p::p}, space :::p, par b {comp label3::b:p::p, comp pen::b:p::p}, space :::p, par b {comp label4::b:p::p, comp connector::b:p::p}, space :::p, par b {comp label5::b:p::p, comp headphoneJack::b:p::p}, space ::39:x, comp next:::p::p, space :p:14:p}}"
+			"$horizontalGroup": "par l {seq {space :::p, par l {seq {comp label2:::p::p, space :::p, comp faceRecognition:::p::p, space ::34:x, comp faceRecognitionQuestion:::p:44:p}, seq {par l {comp label1:::p::p, seq l {space :p:10:p, par l {comp label6:::p::p, comp next:::p::p, seq {space :6:6:p, comp label7:::p::p}}}}, space :0:0:x}, seq l {comp label3:::p::p, space :::p, comp pen:::p::p, space ::120:x, comp penQuestion:::p:44:p}, seq l {comp label4:::p::p, space :::p, comp connector:::p::p, space ::24:x, comp connectorQuestion:::p:44:p}, seq l {comp label5:::p::p, space :::p, comp headphoneJack:::p::p, space ::153:x, comp headphoneQuestion:::p:44:p}}, space :::p}}"
+			"$verticalGroup": "par l {seq l {space :::p, comp label1:::p::p, space u:::p, par b {comp label2::b:p::p, comp faceRecognition::b:p::p, comp faceRecognitionQuestion::b:p::p}, space :::p, par b {comp label3::b:p::p, comp pen::b:p::p, comp penQuestion::b:p::p}, space :::p, par b {comp label4::b:p::p, comp connector::b:p::p, comp connectorQuestion::b:p::p}, space :::p, par b {comp label5::b:p::p, comp headphoneJack::b:p::p, comp headphoneQuestion::b:p::p}, space s:::p, comp label6:::p::p, space :::p, comp label7:::p::p, space ::18:x, comp next:::p::p, space :p:14:p}}"
 		} ) {
 			name: "this"
 			"title": "Phone App - stage 5"
@@ -65,9 +65,66 @@ new FormModel {
 					"JavaCodeGenerator.postInitCode": "next.addActionListener(e -> submitActionPerformed(e));\nnext.setEnabled(false);"
 				}
 			} )
+			add( new FormComponent( "javax.swing.JButton" ) {
+				name: "faceRecognitionQuestion"
+				"text": "?"
+				auxiliary() {
+					"JavaCodeGenerator.postInitCode": "faceRecognitionQuestion.addActionListener(e -> faceRecognitionQuestionActionPerformed(e));\n"
+				}
+			} )
+			add( new FormComponent( "javax.swing.JButton" ) {
+				name: "penQuestion"
+				"text": "?"
+				auxiliary() {
+					"JavaCodeGenerator.postInitCode": "penQuestion.addActionListener(e -> penQuestionActionPerformed(e));\n"
+				}
+			} )
+			add( new FormComponent( "javax.swing.JButton" ) {
+				name: "connectorQuestion"
+				"text": "?"
+				auxiliary() {
+					"JavaCodeGenerator.postInitCode": "connectorQuestion.addActionListener(e -> connectorQuestionActionPerformed(e));\n"
+				}
+			} )
+			add( new FormComponent( "javax.swing.JButton" ) {
+				name: "headphoneQuestion"
+				"text": "?"
+				auxiliary() {
+					"JavaCodeGenerator.postInitCode": "headphoneQuestion.addActionListener(e -> headphoneQuestionActionPerformed(e));\n"
+				}
+			} )
+			add( new FormComponent( "javax.swing.JLabel" ) {
+				name: "label6"
+				"text": "*If you don't know how to answer the questions, press on \"Info\" button"
+				"foreground": new java.awt.Color( 0, 0, 0, 255 )
+			} )
+			add( new FormComponent( "javax.swing.JLabel" ) {
+				name: "label7"
+				"text": "More information is going to be provided"
+				"foreground": new java.awt.Color( 0, 0, 0, 255 )
+			} )
 		}, new FormLayoutConstraints( null ) {
 			"location": new java.awt.Point( 0, 0 )
-			"size": new java.awt.Dimension( 580, 300 )
+			"size": new java.awt.Dimension( 580, 335 )
+		} )
+		add( new FormWindow( "javax.swing.JDialog", new FormLayoutManager( class org.jdesktop.layout.GroupLayout ) {
+			"$horizontalGroup": "par l {seq {space :p:27:p, comp question:::p::p, space ::420:x}, seq l {space :::p, comp answer::::501:x, space :::p}}"
+			"$verticalGroup": "par l {seq l {space :p:15:p, comp question:::p::p, space s:::p, comp answer::::108:x, space :::p}}"
+		} ) {
+			name: "dialog1"
+			"title": "Info"
+			add( new FormComponent( "javax.swing.JLabel" ) {
+				name: "question"
+				"text": "Question?"
+				"font": new com.jformdesigner.model.SwingDerivedFont( null, 0, 3, false )
+			} )
+			add( new FormComponent( "javax.swing.JLabel" ) {
+				name: "answer"
+				"text": "Answer"
+			} )
+		}, new FormLayoutConstraints( null ) {
+			"location": new java.awt.Point( 30, 350 )
+			"size": new java.awt.Dimension( 515, 200 )
 		} )
 	}
 }

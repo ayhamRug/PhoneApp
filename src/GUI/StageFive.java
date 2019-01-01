@@ -57,6 +57,49 @@ public class StageFive extends JFrame {
 
         new ResultWindow().showWindowStage5(budget,touchscreen,expandableStorage,dualSim,preferredBrand,displaySize,fingerprint,rearCameras,waterproof,rearCameraNumber,fingerprintPosition,faceRecognition.getSelectedIndex(),pen.getSelectedIndex(),connector.getSelectedIndex(),headphoneJack.getSelectedIndex());
         this.dispose();
+        dialog1.setVisible(false);
+    }
+
+    private void faceRecognitionQuestionActionPerformed(ActionEvent e) {
+        // TODO add your code here
+
+        question.setText("Do you want the phone to have face recognition features?");
+        answer.setText("<html>Except some of the Apple phones, any other phone would have face recognition feature. The only difference would " +
+                "be the way face recognition works. Only newest Apple phones have face recognition and uses a scanner to identify you, " +
+                "while all other phones would use the front facing camera to identify you. Considering this, Apple's face recognition " +
+                "is more secure and more advanced.</html>");
+        dialog1.setVisible(true);
+    }
+
+    private void penQuestionActionPerformed(ActionEvent e) {
+        // TODO add your code here
+
+        question.setText("Do you want the phone to have a pen/stylus?");
+        answer.setText("<html>Phones that have a pen/stylus are rather big because they store the pen inside the phone case. " +
+                "There are not that many phones with built-in pen/stylus, most of them are made by Samsung and LG. " +
+                "You can use a 3rd party pen/stylus with any phone, but the phones that have it built-in, are way more accurate, " +
+                "they have different pressure levels, can be used under water and they might have custom buttons as well.</html>");
+        dialog1.setVisible(true);
+    }
+
+    private void connectorQuestionActionPerformed(ActionEvent e) {
+        // TODO add your code here
+
+        question.setText("What kind of connector would you like your phone to have?");
+        answer.setText("<html>The newest phones have an usb typeC connector.<br>" +
+                "Some new phones still use microUSB but those are more likely not to be high-end ones.<br>" +
+                "Only iPhones from Apple are using the lightning connector.</html>");
+        dialog1.setVisible(true);
+    }
+
+    private void headphoneQuestionActionPerformed(ActionEvent e) {
+        // TODO add your code here
+
+        question.setText("Do you want to have a headphone jack?");
+        answer.setText("<html>Some of the newest phones don't have a headphone jack anymore. You can still use wired headphones but you would have " +
+                "to buy a dongle (adapter). And if you use one of those adapters, you will most likely be limited to either use the headphones or " +
+                "to charge your phone, so you won't be able to do both at the same time. This might change in the future.</html>");
+        dialog1.setVisible(true);
     }
 
     private void initComponents() {
@@ -72,6 +115,15 @@ public class StageFive extends JFrame {
         label5 = new JLabel();
         headphoneJack = new JComboBox();
         next = new JButton();
+        faceRecognitionQuestion = new JButton();
+        penQuestion = new JButton();
+        connectorQuestion = new JButton();
+        headphoneQuestion = new JButton();
+        label6 = new JLabel();
+        label7 = new JLabel();
+        dialog1 = new JDialog();
+        question = new JLabel();
+        answer = new JLabel();
 
         //======== this ========
         setTitle("Phone App - stage 5");
@@ -159,6 +211,30 @@ public class StageFive extends JFrame {
         next.addActionListener(e -> submitActionPerformed(e));
         next.setEnabled(false);
 
+        //---- faceRecognitionQuestion ----
+        faceRecognitionQuestion.setText("?");
+        faceRecognitionQuestion.addActionListener(e -> faceRecognitionQuestionActionPerformed(e));
+
+        //---- penQuestion ----
+        penQuestion.setText("?");
+        penQuestion.addActionListener(e -> penQuestionActionPerformed(e));
+
+        //---- connectorQuestion ----
+        connectorQuestion.setText("?");
+        connectorQuestion.addActionListener(e -> connectorQuestionActionPerformed(e));
+
+        //---- headphoneQuestion ----
+        headphoneQuestion.setText("?");
+        headphoneQuestion.addActionListener(e -> headphoneQuestionActionPerformed(e));
+
+        //---- label6 ----
+        label6.setText("*If you don't know how to answer the questions, press on \"Info\" button");
+        label6.setForeground(Color.black);
+
+        //---- label7 ----
+        label7.setText("More information is going to be provided");
+        label7.setForeground(Color.black);
+
         GroupLayout contentPaneLayout = new GroupLayout(contentPane);
         contentPane.setLayout(contentPaneLayout);
         contentPaneLayout.setHorizontalGroup(
@@ -167,31 +243,42 @@ public class StageFive extends JFrame {
                     .addContainerGap()
                     .addGroup(contentPaneLayout.createParallelGroup()
                         .addGroup(contentPaneLayout.createSequentialGroup()
+                            .addComponent(label2)
+                            .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
+                            .addComponent(faceRecognition, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
+                            .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED, 34, Short.MAX_VALUE)
+                            .addComponent(faceRecognitionQuestion, GroupLayout.PREFERRED_SIZE, 44, GroupLayout.PREFERRED_SIZE))
+                        .addGroup(contentPaneLayout.createSequentialGroup()
                             .addGroup(contentPaneLayout.createParallelGroup()
                                 .addComponent(label1)
                                 .addGroup(contentPaneLayout.createSequentialGroup()
-                                    .addComponent(label2)
-                                    .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
-                                    .addComponent(faceRecognition, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)))
-                            .addContainerGap(84, Short.MAX_VALUE))
-                        .addGroup(contentPaneLayout.createSequentialGroup()
-                            .addGroup(contentPaneLayout.createParallelGroup()
-                                .addGroup(contentPaneLayout.createSequentialGroup()
-                                    .addComponent(label3)
-                                    .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
-                                    .addComponent(pen, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))
-                                .addGroup(contentPaneLayout.createSequentialGroup()
-                                    .addComponent(label4)
-                                    .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
-                                    .addComponent(connector, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))
-                                .addGroup(contentPaneLayout.createSequentialGroup()
-                                    .addComponent(label5)
-                                    .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
-                                    .addComponent(headphoneJack, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))
-                                .addGroup(contentPaneLayout.createSequentialGroup()
                                     .addGap(10, 10, 10)
-                                    .addComponent(next)))
-                            .addGap(0, 74, Short.MAX_VALUE))))
+                                    .addGroup(contentPaneLayout.createParallelGroup()
+                                        .addComponent(label6)
+                                        .addComponent(next)
+                                        .addGroup(contentPaneLayout.createSequentialGroup()
+                                            .addGap(6, 6, 6)
+                                            .addComponent(label7)))))
+                            .addGap(0, 0, Short.MAX_VALUE))
+                        .addGroup(contentPaneLayout.createSequentialGroup()
+                            .addComponent(label3)
+                            .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
+                            .addComponent(pen, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
+                            .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED, 120, Short.MAX_VALUE)
+                            .addComponent(penQuestion, GroupLayout.PREFERRED_SIZE, 44, GroupLayout.PREFERRED_SIZE))
+                        .addGroup(contentPaneLayout.createSequentialGroup()
+                            .addComponent(label4)
+                            .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
+                            .addComponent(connector, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
+                            .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED, 24, Short.MAX_VALUE)
+                            .addComponent(connectorQuestion, GroupLayout.PREFERRED_SIZE, 44, GroupLayout.PREFERRED_SIZE))
+                        .addGroup(contentPaneLayout.createSequentialGroup()
+                            .addComponent(label5)
+                            .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
+                            .addComponent(headphoneJack, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
+                            .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED, 153, Short.MAX_VALUE)
+                            .addComponent(headphoneQuestion, GroupLayout.PREFERRED_SIZE, 44, GroupLayout.PREFERRED_SIZE)))
+                    .addContainerGap())
         );
         contentPaneLayout.setVerticalGroup(
             contentPaneLayout.createParallelGroup()
@@ -201,25 +288,71 @@ public class StageFive extends JFrame {
                     .addPreferredGap(LayoutStyle.ComponentPlacement.UNRELATED)
                     .addGroup(contentPaneLayout.createParallelGroup(GroupLayout.Alignment.BASELINE)
                         .addComponent(label2)
-                        .addComponent(faceRecognition, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))
+                        .addComponent(faceRecognition, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
+                        .addComponent(faceRecognitionQuestion))
                     .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
                     .addGroup(contentPaneLayout.createParallelGroup(GroupLayout.Alignment.BASELINE)
                         .addComponent(label3)
-                        .addComponent(pen, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))
+                        .addComponent(pen, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
+                        .addComponent(penQuestion))
                     .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
                     .addGroup(contentPaneLayout.createParallelGroup(GroupLayout.Alignment.BASELINE)
                         .addComponent(label4)
-                        .addComponent(connector, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))
+                        .addComponent(connector, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
+                        .addComponent(connectorQuestion))
                     .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
                     .addGroup(contentPaneLayout.createParallelGroup(GroupLayout.Alignment.BASELINE)
                         .addComponent(label5)
-                        .addComponent(headphoneJack, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))
-                    .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED, 39, Short.MAX_VALUE)
+                        .addComponent(headphoneJack, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
+                        .addComponent(headphoneQuestion))
+                    .addGap(18, 18, 18)
+                    .addComponent(label6)
+                    .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
+                    .addComponent(label7)
+                    .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED, 18, Short.MAX_VALUE)
                     .addComponent(next)
                     .addGap(14, 14, 14))
         );
         pack();
         setLocationRelativeTo(getOwner());
+
+        //======== dialog1 ========
+        {
+            dialog1.setTitle("Info");
+            Container dialog1ContentPane = dialog1.getContentPane();
+
+            //---- question ----
+            question.setText("Question?");
+            question.setFont(question.getFont().deriveFont(question.getFont().getSize() + 3f));
+
+            //---- answer ----
+            answer.setText("Answer");
+
+            GroupLayout dialog1ContentPaneLayout = new GroupLayout(dialog1ContentPane);
+            dialog1ContentPane.setLayout(dialog1ContentPaneLayout);
+            dialog1ContentPaneLayout.setHorizontalGroup(
+                dialog1ContentPaneLayout.createParallelGroup()
+                    .addGroup(dialog1ContentPaneLayout.createSequentialGroup()
+                        .addGap(27, 27, 27)
+                        .addComponent(question)
+                        .addContainerGap(420, Short.MAX_VALUE))
+                    .addGroup(dialog1ContentPaneLayout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(answer, GroupLayout.DEFAULT_SIZE, 501, Short.MAX_VALUE)
+                        .addContainerGap())
+            );
+            dialog1ContentPaneLayout.setVerticalGroup(
+                dialog1ContentPaneLayout.createParallelGroup()
+                    .addGroup(dialog1ContentPaneLayout.createSequentialGroup()
+                        .addGap(15, 15, 15)
+                        .addComponent(question)
+                        .addGap(18, 18, 18)
+                        .addComponent(answer, GroupLayout.DEFAULT_SIZE, 108, Short.MAX_VALUE)
+                        .addContainerGap())
+            );
+            dialog1.pack();
+            dialog1.setLocationRelativeTo(dialog1.getOwner());
+        }
         // JFormDesigner - End of component initialization  //GEN-END:initComponents
     }
 
@@ -235,5 +368,14 @@ public class StageFive extends JFrame {
     private JLabel label5;
     private JComboBox headphoneJack;
     private JButton next;
+    private JButton faceRecognitionQuestion;
+    private JButton penQuestion;
+    private JButton connectorQuestion;
+    private JButton headphoneQuestion;
+    private JLabel label6;
+    private JLabel label7;
+    private JDialog dialog1;
+    private JLabel question;
+    private JLabel answer;
     // JFormDesigner - End of variables declaration  //GEN-END:variables
 }
