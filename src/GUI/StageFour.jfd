@@ -1,0 +1,51 @@
+JFDML JFormDesigner: "6.0.5.0.178" Java: "1.8.0_152-release" encoding: "UTF-8"
+
+new FormModel {
+	contentType: "form/swing"
+	root: new FormRoot {
+		add( new FormWindow( "javax.swing.JFrame", new FormLayoutManager( class org.jdesktop.layout.GroupLayout ) {
+			"$horizontalGroup": "par l {seq {space :::p, par l {comp label1::l:p::p, seq l {comp label2:::p::p, space u:::p, comp fingerprintLocation:::p::p}, seq l {comp label3:::p::p, space u:::p, comp rearCameraNumber:::p::p}, comp next::l:p::p}, space ::121:x}}"
+			"$verticalGroup": "par l {seq l {space :::p, comp label1:::p::p, space u:::p, par b {comp label2::b:p::p, comp fingerprintLocation::b:p::p}, space :::p, par b {comp label3::b:p::p, comp rearCameraNumber::b:p::p}, space ::119:x, comp next:::p::p, space :::p}}"
+		} ) {
+			name: "this"
+			"title": "Phone App - stage 4"
+			add( new FormComponent( "javax.swing.JLabel" ) {
+				name: "label1"
+				"text": "Phone App"
+				"font": new com.jformdesigner.model.SwingDerivedFont( null, 0, 9, false )
+			} )
+			add( new FormComponent( "javax.swing.JLabel" ) {
+				name: "label2"
+				"text": "Where would you like to have the fingerprint scanner?"
+				"font": new com.jformdesigner.model.SwingDerivedFont( null, 0, 3, false )
+			} )
+			add( new FormComponent( "javax.swing.JComboBox" ) {
+				name: "fingerprintLocation"
+				auxiliary() {
+					"JavaCodeGenerator.postInitCode": "fingerprintLocation.addItem(\"Choose an option\");\nfingerprintLocation.addItem(\"In the back\");\nfingerprintLocation.addItem(\"In the front\");\nfingerprintLocation.addItem(\"On the side\");\nfingerprintLocation.addItem(\"Underneath the display\");\nfingerprintLocation.addItem(\"Not important\");\n\nif(fingerprint != 1) fingerprintLocation.setEnabled(false);\n\nfingerprintLocation.addItemListener(new ItemListener() {\n     @Override\n     public void itemStateChanged(ItemEvent e) {\n\t\tif(fingerprintLocation.isEnabled()==true && rearCameraNumber.isEnabled()==true && fingerprintLocation.getSelectedIndex()==0 && rearCameraNumber.getSelectedIndex()==0) next.setEnabled(false);\n\t\telse if(fingerprintLocation.isEnabled()==false && rearCameraNumber.isEnabled()==true && rearCameraNumber.getSelectedIndex()==0) next.setEnabled(false);\n\t\telse if(fingerprintLocation.isEnabled()==true && rearCameraNumber.isEnabled()==false && fingerprintLocation.getSelectedIndex()==0) next.setEnabled(false);\n\t\telse next.setEnabled(true);     \n}\n});"
+				}
+			} )
+			add( new FormComponent( "javax.swing.JLabel" ) {
+				name: "label3"
+				"text": "How many rear cameras do you want?"
+				"font": new com.jformdesigner.model.SwingDerivedFont( null, 0, 3, false )
+			} )
+			add( new FormComponent( "javax.swing.JComboBox" ) {
+				name: "rearCameraNumber"
+				auxiliary() {
+					"JavaCodeGenerator.postInitCode": "rearCameraNumber.addItem(\"Choose an option\");\nrearCameraNumber.addItem(\"2\");\nrearCameraNumber.addItem(\"3\");\nrearCameraNumber.addItem(\"4\");\nrearCameraNumber.addItem(\"Not important\");\n\nrearCameraNumber.addItemListener(new ItemListener() {\n     @Override\n     public void itemStateChanged(ItemEvent e) {\n\t\tif(fingerprintLocation.isEnabled()==true && rearCameraNumber.isEnabled()==true && fingerprintLocation.getSelectedIndex()==0 && rearCameraNumber.getSelectedIndex()==0) next.setEnabled(false);\n\t\telse if(fingerprintLocation.isEnabled()==false && rearCameraNumber.isEnabled()==true && rearCameraNumber.getSelectedIndex()==0) next.setEnabled(false);\n\t\telse if(fingerprintLocation.isEnabled()==true && rearCameraNumber.isEnabled()==false && fingerprintLocation.getSelectedIndex()==0) next.setEnabled(false);\n\t\telse next.setEnabled(true);     \n}\n});"
+				}
+			} )
+			add( new FormComponent( "javax.swing.JButton" ) {
+				name: "next"
+				"text": "Next"
+				auxiliary() {
+					"JavaCodeGenerator.postInitCode": "next.addActionListener(e -> submitActionPerformed(e));\nnext.setEnabled(false);"
+				}
+			} )
+		}, new FormLayoutConstraints( null ) {
+			"location": new java.awt.Point( 0, 0 )
+			"size": new java.awt.Dimension( 595, 300 )
+		} )
+	}
+}

@@ -2,16 +2,6 @@ package BusinessLogic;
 
 public class Phone {
 
-    public enum PhoneBrandSelector {
-        Any,
-        Huawei,
-        Apple,
-        LG,
-        Nokia,
-        Samsung,
-        Sony
-    }
-
     public enum ExpandableStorage {
 
         ANY("Not Important"),
@@ -29,22 +19,9 @@ public class Phone {
         }
     }
 
-    public enum FingerprintLocation {
-        Front,
-        Back,
-        Side,
-        Rear,
-        UnderDisplay
-    }
-
-    public enum ConnectorType {
-        TypeC,
-        Lightning
-    }
-
-    private PhoneBrandSelector brand;
-    private FingerprintLocation fingerprintLocation;
-    private ConnectorType connectorType;
+    private String brand;
+    private String fingerprintLocation;
+    private String connectorType;
 
     private String name;
     private String image;
@@ -64,15 +41,15 @@ public class Phone {
     private boolean pen;
     private boolean faceRecognition;
 
-    public PhoneBrandSelector getBrand() {
-        return brand;
-    }
-
-    public FingerprintLocation getFingerprintLocation() {
+    public String getFingerprintLocation() {
         return fingerprintLocation;
     }
 
-    public ConnectorType getConnectorType() {
+    public String getBrand() {
+        return brand;
+    }
+
+    public String getConnectorType() {
         return connectorType;
     }
 

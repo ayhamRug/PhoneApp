@@ -1,0 +1,51 @@
+JFDML JFormDesigner: "6.0.5.0.178" Java: "1.8.0_152-release" encoding: "UTF-8"
+
+new FormModel {
+	contentType: "form/swing"
+	root: new FormRoot {
+		add( new FormWindow( "javax.swing.JFrame", new FormLayoutManager( class org.jdesktop.layout.GroupLayout ) {
+			"$horizontalGroup": "par l {seq {par l {seq l {space :p:16:p, comp titleLabel:::p::p}, seq l {space :::p, comp preferredBrandLabel:::p::p, space :::p, comp preferredBrand:::p::p}, seq l {space :::p, comp displaySizeLabel:::p::p, space :::p, comp displaySize:::p::p}, seq l {space :::p, comp next:::p::p}}, space ::22:x}}"
+			"$verticalGroup": "par l {seq l {space :::p, comp titleLabel:::p::p, space :p:18:p, par b {comp preferredBrandLabel::b:p::p, comp preferredBrand::b:p::p}, space :::p, par b {comp displaySizeLabel::b:p::p, comp displaySize::b:p::p}, space :::x, comp next:::p::p, space :::p}}"
+		} ) {
+			name: "this"
+			"title": "Phone App - Stage 2"
+			add( new FormComponent( "javax.swing.JLabel" ) {
+				name: "titleLabel"
+				"text": "Phone App"
+				"font": new com.jformdesigner.model.SwingDerivedFont( null, 0, 9, false )
+			} )
+			add( new FormComponent( "javax.swing.JLabel" ) {
+				name: "preferredBrandLabel"
+				"text": "Do you have a preferred brand?"
+				"font": new com.jformdesigner.model.SwingDerivedFont( null, 0, 3, false )
+			} )
+			add( new FormComponent( "javax.swing.JComboBox" ) {
+				name: "preferredBrand"
+				auxiliary() {
+					"JavaCodeGenerator.postInitCode": "preferredBrand.addItem(\"Choose an item\");\npreferredBrand.addItem(\"Huawei\");\npreferredBrand.addItem(\"LG\");\npreferredBrand.addItem(\"Apple\");\npreferredBrand.addItem(\"Nokia\");\npreferredBrand.addItem(\"Samsung\");\npreferredBrand.addItem(\"Sony\");\npreferredBrand.addItem(\"Xiaomi\");\npreferredBrand.addItem(\"Google\");\npreferredBrand.addItem(\"Blackberry\");\npreferredBrand.addItem(\"Not Important\");\n\npreferredBrand.addItemListener(new ItemListener() {\n     @Override\n     public void itemStateChanged(ItemEvent e) {\n        if(preferredBrand.getSelectedIndex()==0 || displaySize.getSelectedIndex()==0) next.setEnabled(false);\n        else next.setEnabled(true);\n     }\n });"
+				}
+			} )
+			add( new FormComponent( "javax.swing.JLabel" ) {
+				name: "displaySizeLabel"
+				"text": "Do you have any preference regarding the display size?"
+				"font": new com.jformdesigner.model.SwingDerivedFont( null, 0, 3, false )
+			} )
+			add( new FormComponent( "javax.swing.JComboBox" ) {
+				name: "displaySize"
+				auxiliary() {
+					"JavaCodeGenerator.postInitCode": "displaySize.addItem(\"Choose an option\");\ndisplaySize.addItem(\"Bigger than 5\\\"\");\ndisplaySize.addItem(\"Smaller than 5\\\"\");\ndisplaySize.addItem(\"Not important\");\n\ndisplaySize.addItemListener(new ItemListener() {\n     @Override\n     public void itemStateChanged(ItemEvent e) {\n        if(preferredBrand.getSelectedIndex()==0 || displaySize.getSelectedIndex()==0) next.setEnabled(false);\n        else next.setEnabled(true);\n     }\n });"
+				}
+			} )
+			add( new FormComponent( "javax.swing.JButton" ) {
+				name: "next"
+				"text": "Next"
+				auxiliary() {
+					"JavaCodeGenerator.postInitCode": "next.addActionListener(e -> submitActionPerformed(e));\nnext.setEnabled(false);"
+				}
+			} )
+		}, new FormLayoutConstraints( null ) {
+			"location": new java.awt.Point( 430, 160 )
+			"size": new java.awt.Dimension( 500, 200 )
+		} )
+	}
+}

@@ -1,0 +1,73 @@
+JFDML JFormDesigner: "6.0.5.0.178" Java: "1.8.0_152-release" encoding: "UTF-8"
+
+new FormModel {
+	contentType: "form/swing"
+	root: new FormRoot {
+		add( new FormWindow( "javax.swing.JFrame", new FormLayoutManager( class org.jdesktop.layout.GroupLayout ) {
+			"$horizontalGroup": "par l {seq {space :::p, par l {seq {par l {comp label1::l:p::p, seq l {comp label2:::p::p, space :::p, comp faceRecognition:::p::p}}, space ::84:x}, seq {par l {seq l {comp label3:::p::p, space :::p, comp pen:::p::p}, seq l {comp label4:::p::p, space :::p, comp connector:::p::p}, seq l {comp label5:::p::p, space :::p, comp headphoneJack:::p::p}, seq l {space :p:10:p, comp next:::p::p}}, space :0:74:x}}}}"
+			"$verticalGroup": "par l {seq l {space :::p, comp label1:::p::p, space u:::p, par b {comp label2::b:p::p, comp faceRecognition::b:p::p}, space :::p, par b {comp label3::b:p::p, comp pen::b:p::p}, space :::p, par b {comp label4::b:p::p, comp connector::b:p::p}, space :::p, par b {comp label5::b:p::p, comp headphoneJack::b:p::p}, space ::39:x, comp next:::p::p, space :p:14:p}}"
+		} ) {
+			name: "this"
+			"title": "Phone App - stage 5"
+			add( new FormComponent( "javax.swing.JLabel" ) {
+				name: "label1"
+				"text": "Phone App"
+				"font": new com.jformdesigner.model.SwingDerivedFont( null, 0, 9, false )
+			} )
+			add( new FormComponent( "javax.swing.JLabel" ) {
+				name: "label2"
+				"text": "Do you want the phone to have face recognition features?"
+				"font": new com.jformdesigner.model.SwingDerivedFont( null, 0, 3, false )
+			} )
+			add( new FormComponent( "javax.swing.JComboBox" ) {
+				name: "faceRecognition"
+				auxiliary() {
+					"JavaCodeGenerator.postInitCode": "faceRecognition.addItem(\"Choose an item\");\nfaceRecognition.addItem(\"Yes\");\nfaceRecognition.addItem(\"No\");\nfaceRecognition.addItem(\"Not important\");\n\nfaceRecognition.addItemListener(new ItemListener() {\n     @Override\n     public void itemStateChanged(ItemEvent e) {\n        if(faceRecognition.getSelectedIndex()==0 || pen.getSelectedIndex()==0 || connector.getSelectedIndex()==0 || headphoneJack.getSelectedIndex()==0) next.setEnabled(false);\n        else next.setEnabled(true);\n     }\n });"
+				}
+			} )
+			add( new FormComponent( "javax.swing.JLabel" ) {
+				name: "label3"
+				"text": "Do you want the phone to have a pen/stylus?"
+				"font": new com.jformdesigner.model.SwingDerivedFont( null, 0, 3, false )
+			} )
+			add( new FormComponent( "javax.swing.JComboBox" ) {
+				name: "pen"
+				auxiliary() {
+					"JavaCodeGenerator.postInitCode": "pen.addItem(\"Choose an item\");\npen.addItem(\"Yes\");\npen.addItem(\"No\");\npen.addItem(\"Not important\");\n\npen.addItemListener(new ItemListener() {\n     @Override\n     public void itemStateChanged(ItemEvent e) {\n        if(faceRecognition.getSelectedIndex()==0 || pen.getSelectedIndex()==0 || connector.getSelectedIndex()==0 || headphoneJack.getSelectedIndex()==0) next.setEnabled(false);\n        else next.setEnabled(true);\n     }\n });"
+				}
+			} )
+			add( new FormComponent( "javax.swing.JLabel" ) {
+				name: "label4"
+				"text": "What kind of connector would you like your phone to have?"
+				"font": new com.jformdesigner.model.SwingDerivedFont( null, 0, 3, false )
+			} )
+			add( new FormComponent( "javax.swing.JComboBox" ) {
+				name: "connector"
+				auxiliary() {
+					"JavaCodeGenerator.postInitCode": "connector.addItem(\"Choose an item\");\nconnector.addItem(\"MicroUSB\");\nconnector.addItem(\"TypeC\");\nconnector.addItem(\"Lightning\");\nconnector.addItem(\"Not important\");\n\nconnector.addItemListener(new ItemListener() {\n     @Override\n     public void itemStateChanged(ItemEvent e) {\n        if(faceRecognition.getSelectedIndex()==0 || pen.getSelectedIndex()==0 || connector.getSelectedIndex()==0 || headphoneJack.getSelectedIndex()==0) next.setEnabled(false);\n        else next.setEnabled(true);\n     }\n });"
+				}
+			} )
+			add( new FormComponent( "javax.swing.JLabel" ) {
+				name: "label5"
+				"text": "Do you want to have a headphone jack?"
+				"font": new com.jformdesigner.model.SwingDerivedFont( null, 0, 3, false )
+			} )
+			add( new FormComponent( "javax.swing.JComboBox" ) {
+				name: "headphoneJack"
+				auxiliary() {
+					"JavaCodeGenerator.postInitCode": "headphoneJack.addItem(\"Choose an item\");\nheadphoneJack.addItem(\"Yes\");\nheadphoneJack.addItem(\"No\");\nheadphoneJack.addItem(\"Not important\");\n\nheadphoneJack.addItemListener(new ItemListener() {\n     @Override\n     public void itemStateChanged(ItemEvent e) {\n        if(faceRecognition.getSelectedIndex()==0 || pen.getSelectedIndex()==0 || connector.getSelectedIndex()==0 || headphoneJack.getSelectedIndex()==0) next.setEnabled(false);\n        else next.setEnabled(true);\n     }\n });"
+				}
+			} )
+			add( new FormComponent( "javax.swing.JButton" ) {
+				name: "next"
+				"text": "Submit"
+				auxiliary() {
+					"JavaCodeGenerator.postInitCode": "next.addActionListener(e -> submitActionPerformed(e));\nnext.setEnabled(false);"
+				}
+			} )
+		}, new FormLayoutConstraints( null ) {
+			"location": new java.awt.Point( 0, 0 )
+			"size": new java.awt.Dimension( 580, 300 )
+		} )
+	}
+}

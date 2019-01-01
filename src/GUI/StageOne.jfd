@@ -1,0 +1,113 @@
+JFDML JFormDesigner: "6.0.5.0.178" Java: "1.8.0_152-release" encoding: "UTF-8"
+
+new FormModel {
+	contentType: "form/swing"
+	root: new FormRoot {
+		add( new FormWindow( "javax.swing.JFrame", new FormLayoutManager( class org.jdesktop.layout.GroupLayout ) {
+			"$horizontalGroup": "par l {seq {par l {seq l {space :p:14:p, comp Title:::p::p}, seq l {space :::p, par l {comp label3:::p::p, seq l {space :6:6:p, par l {comp next:::p::p, comp label4:::p::p}}}}, seq l {space :::p, par l {seq l {comp ExpandableStorageLabel:::p::p, space u:::p, comp expandableStorage:::p::p}, seq l {comp dualSimLabel:::p::p, space u:::p, comp dualSim:::p::p}, seq l {comp phoneType:::p::p, space u:::p, comp touchscreen:::p::p}}, space :::p, par t {comp phoneTypeQuestion::::44:x, comp dualSimQuestion::l::0:x, comp expStorageQuestion::l::44:x}}}, space :::p}}"
+			"$verticalGroup": "par l {seq l {space :::p, comp Title:::p::p, space :::p, par b {comp phoneType::b:p::p, comp touchscreen::b:p::p, comp phoneTypeQuestion::b:p::p}, space :::p, par b {comp ExpandableStorageLabel::b:p::p, comp expandableStorage::b:p::p, comp expStorageQuestion::b:p::p}, space :::p, par b {comp dualSimLabel::b:p::p, comp dualSim::b:p::p, comp dualSimQuestion::b:p::p}, space ::33:x, comp label3:::p::p, space :::p, comp label4:::p::p, space :p:18:p, comp next:::p::p, space :::p}}"
+		} ) {
+			name: "this"
+			"title": "Phone App - Stage 1"
+			add( new FormComponent( "javax.swing.JLabel" ) {
+				name: "Title"
+				"text": "Phone App"
+				"font": new com.jformdesigner.model.SwingDerivedFont( null, 0, 9, false )
+			} )
+			add( new FormComponent( "javax.swing.JLabel" ) {
+				name: "phoneType"
+				"text": "What kind of phone would you like?"
+				"font": new com.jformdesigner.model.SwingDerivedFont( null, 0, 3, false )
+			} )
+			add( new FormComponent( "javax.swing.JComboBox" ) {
+				name: "touchscreen"
+				auxiliary() {
+					"JavaCodeGenerator.postInitCode": "if(stage == 1 || stage == 2) {\n\ttouchscreen.addItem(\"Choose an option\");\n\ttouchscreen.addItem(\"With Touchscreen\");\n\ttouchscreen.addItem(\"With Keypad\");\n\ttouchscreen.addItem(\"Not Important\");\n} else if (stage > 2) {\n\ttouchscreen.addItem(\"Choose an option\");\n\ttouchscreen.addItem(\"With Touchscreen\");\n\ttouchscreen.addItem(\"With Keypad\");\n\ttouchscreen.addItem(\"With Touchscreen+Keypad\");\n\ttouchscreen.addItem(\"Not Important\");\n}\n\ntouchscreen.addItemListener(new ItemListener() {\n     @Override\n     public void itemStateChanged(ItemEvent e) {\n        if(touchscreen.getSelectedIndex()==0 || expandableStorage.getSelectedIndex()==0 || dualSim.getSelectedIndex()==0) next.setEnabled(false);\n        else next.setEnabled(true);\n\n\t\tif(stage==2 && touchscreen.getSelectedIndex()==2) next.setText(\"Search\");\n\t\telse if(stage==2 && touchscreen.getSelectedIndex()!=2) next.setText(\"Next\");\n     }\n });"
+				}
+			} )
+			add( new FormComponent( "javax.swing.JButton" ) {
+				name: "next"
+				"text": "Next"
+				auxiliary() {
+					"JavaCodeGenerator.postInitCode": "if(stage==1) next.setText(\"Search\");\nnext.addActionListener(e -> submitActionPerformed(e));\nnext.setEnabled(false);"
+				}
+			} )
+			add( new FormComponent( "javax.swing.JLabel" ) {
+				name: "ExpandableStorageLabel"
+				"text": "Do you want expandable storage?"
+				"font": new com.jformdesigner.model.SwingDerivedFont( null, 0, 3, false )
+			} )
+			add( new FormComponent( "javax.swing.JComboBox" ) {
+				name: "expandableStorage"
+				auxiliary() {
+					"JavaCodeGenerator.postInitCode": "expandableStorage.addItem(\"Choose an option\");\nexpandableStorage.addItem(\"Yes\");\nexpandableStorage.addItem(\"No\");\nexpandableStorage.addItem(\"Not Important\");\n\nexpandableStorage.addItemListener(new ItemListener() {\n     @Override\n     public void itemStateChanged(ItemEvent e) {\n        if(touchscreen.getSelectedIndex()==0 || expandableStorage.getSelectedIndex()==0 || dualSim.getSelectedIndex()==0) next.setEnabled(false);\n        else next.setEnabled(true);\n     }\n });"
+				}
+			} )
+			add( new FormComponent( "javax.swing.JLabel" ) {
+				name: "dualSimLabel"
+				"text": "Do you want the phone to be dual sim?"
+				"font": new com.jformdesigner.model.SwingDerivedFont( null, 0, 3, false )
+			} )
+			add( new FormComponent( "javax.swing.JComboBox" ) {
+				name: "dualSim"
+				auxiliary() {
+					"JavaCodeGenerator.postInitCode": "dualSim.addItem(\"Choose an option\");\ndualSim.addItem(\"Yes\");\ndualSim.addItem(\"No\");\ndualSim.addItem(\"Not Important\");\n\ndualSim.addItemListener(new ItemListener() {\n     @Override\n     public void itemStateChanged(ItemEvent e) {\n        if(touchscreen.getSelectedIndex()==0 || expandableStorage.getSelectedIndex()==0 || dualSim.getSelectedIndex()==0) next.setEnabled(false);\n        else next.setEnabled(true);\n     }\n });"
+				}
+			} )
+			add( new FormComponent( "javax.swing.JLabel" ) {
+				name: "label3"
+				"text": "*If you don't know how to answer the questions, press on \"Info\" button"
+				"foreground": sfield java.awt.Color black
+			} )
+			add( new FormComponent( "javax.swing.JLabel" ) {
+				name: "label4"
+				"text": "More information is going to be provided"
+				"foreground": sfield java.awt.Color black
+			} )
+			add( new FormComponent( "javax.swing.JButton" ) {
+				name: "phoneTypeQuestion"
+				"text": "?"
+				auxiliary() {
+					"JavaCodeGenerator.postInitCode": "phoneTypeQuestion.addActionListener(e -> phoneTypeQuestionActionPerformed(e));\n"
+				}
+			} )
+			add( new FormComponent( "javax.swing.JButton" ) {
+				name: "expStorageQuestion"
+				"text": "?"
+				auxiliary() {
+					"JavaCodeGenerator.postInitCode": "expStorageQuestion.addActionListener(e -> expStorageQuestionActionPerformed(e));"
+				}
+			} )
+			add( new FormComponent( "javax.swing.JButton" ) {
+				name: "dualSimQuestion"
+				"text": "?"
+				auxiliary() {
+					"JavaCodeGenerator.postInitCode": "dualSimQuestion.addActionListener(e -> dualSimQuestionActionPerformed(e));"
+				}
+			} )
+		}, new FormLayoutConstraints( null ) {
+			"location": new java.awt.Point( 420, 105 )
+			"size": new java.awt.Dimension( 435, 300 )
+		} )
+		add( new FormWindow( "javax.swing.JDialog", new FormLayoutManager( class org.jdesktop.layout.GroupLayout ) {
+			"$horizontalGroup": "par l {seq {par l {seq {space :p:52:p, comp question:::p::p}, seq l {space :::p, comp explanation:::p::p}}, space ::345:x}}"
+			"$verticalGroup": "par l {seq l {space :p:14:p, comp question:::p::p, space :p:27:p, comp explanation:::p::p, space ::200:x}}"
+		} ) {
+			name: "dialog1"
+			"title": "Info"
+			"resizable": false
+			add( new FormComponent( "javax.swing.JLabel" ) {
+				name: "question"
+				"text": "Text1"
+				"font": new com.jformdesigner.model.SwingDerivedFont( null, 0, 3, false )
+			} )
+			add( new FormComponent( "javax.swing.JLabel" ) {
+				name: "explanation"
+				"text": "Explanation"
+			} )
+		}, new FormLayoutConstraints( null ) {
+			"location": new java.awt.Point( 420, 420 )
+			"size": new java.awt.Dimension( 435, 310 )
+		} )
+	}
+}

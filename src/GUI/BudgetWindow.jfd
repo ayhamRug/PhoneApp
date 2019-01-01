@@ -1,0 +1,52 @@
+JFDML JFormDesigner: "6.0.5.0.178" Java: "1.8.0_152-release" encoding: "UTF-8"
+
+new FormModel {
+	contentType: "form/swing"
+	root: new FormRoot {
+		add( new FormWindow( "javax.swing.JFrame", new FormLayoutManager( class org.jdesktop.layout.GroupLayout ) {
+			"$horizontalGroup": "par l {seq l {space :p:17:p, par l {seq {comp submit:::p::p, space :::x}, seq {par l {seq {par l {comp Title:::p::p, comp budgetLabel:::p::p}, space :0:0:x}, seq l {space :6:6:p, comp max:::p::p, space u:::p, comp budgetFieldRequired:::::x}}, space :p:123:p}}}}"
+			"$verticalGroup": "par l {seq l {space :::p, comp Title:::p::p, space s:::p, comp budgetLabel:::p:28:p, space :::p, par b {comp max::b:p::p, comp budgetFieldRequired::b:p:20:p}, space s:::p, comp submit:::p::p, space ::23:x}}"
+		} ) {
+			name: "this"
+			"defaultCloseOperation": 2
+			"title": "Phone App - Budget"
+			"font": new java.awt.Font( "Dialog", 0, 13 )
+			add( new FormComponent( "javax.swing.JLabel" ) {
+				name: "Title"
+				"text": "Phone App"
+				"font": new com.jformdesigner.model.SwingDerivedFont( null, 0, 9, false )
+				"horizontalAlignment": 0
+				"horizontalTextPosition": 0
+			} )
+			add( new FormComponent( "javax.swing.JLabel" ) {
+				name: "budgetLabel"
+				"text": "What is your maximum budget?"
+				"font": new com.jformdesigner.model.SwingDerivedFont( null, 0, 3, false )
+			} )
+			add( new FormComponent( "javax.swing.JTextField" ) {
+				name: "max"
+				"minimumSize": new java.awt.Dimension( 50, 25 )
+				"preferredSize": new java.awt.Dimension( 50, 25 )
+				auxiliary() {
+					"JavaCodeGenerator.postInitCode": "max.getDocument().addDocumentListener(new DocumentListener() {\npublic void changedUpdate (DocumentEvent e){\n    changed();\n}\npublic void removeUpdate (DocumentEvent e){\n    changed();\n}\npublic void insertUpdate (DocumentEvent e){\n    changed();\n}\n\npublic void changed () {\n    String regex = \"\\\\d+\";\n    if (max.getText().equals(\"\")) {\n        submit.setEnabled(false);\n        budgetFieldRequired.setText(\"*this field is required!\");\n        budgetFieldRequired.setVisible(true);\n    } else {\n        if (!max.getText().matches(regex)) {\n            budgetFieldRequired.setText(\"*this field should contain only numbers!\");\n            budgetFieldRequired.setVisible(true);\n        } else {\n            budgetFieldRequired.setVisible(false);\n            submit.setEnabled(true);\n        }\n    }\n}\n});"
+				}
+			} )
+			add( new FormComponent( "javax.swing.JButton" ) {
+				name: "submit"
+				"text": "Next"
+				auxiliary() {
+					"JavaCodeGenerator.postInitCode": "submit.setEnabled(false);"
+				}
+				addEvent( new FormEvent( "java.awt.event.ActionListener", "actionPerformed", "submitActionPerformed", true ) )
+			} )
+			add( new FormComponent( "javax.swing.JLabel" ) {
+				name: "budgetFieldRequired"
+				"text": "*this field is required"
+				"foreground": new java.awt.Color( 255, 0, 51, 255 )
+			} )
+		}, new FormLayoutConstraints( null ) {
+			"location": new java.awt.Point( 205, 125 )
+			"size": new java.awt.Dimension( 300, 215 )
+		} )
+	}
+}

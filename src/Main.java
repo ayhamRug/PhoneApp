@@ -1,4 +1,4 @@
-import GUI.InputWindow;
+import GUI.BudgetWindow;
 
 public class Main {
 
@@ -6,6 +6,6 @@ public class Main {
     //
     public static void main(String[] args) {
 
-        new InputWindow().showWindow();
+        new BudgetWindow().showWindow();
     }
 }

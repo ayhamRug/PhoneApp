@@ -1,0 +1,62 @@
+JFDML JFormDesigner: "6.0.5.0.178" Java: "1.8.0_152-release" encoding: "UTF-8"
+
+new FormModel {
+	contentType: "form/swing"
+	root: new FormRoot {
+		add( new FormWindow( "javax.swing.JFrame", new FormLayoutManager( class org.jdesktop.layout.GroupLayout ) {
+			"$horizontalGroup": "par l {seq l {space :p:14:p, par l {comp next:::p::p, seq {comp rearCamerasLabel:::p::p, space :::p, comp rearCameras:::p::p}, seq {comp waterproofLabel:::p::p, space :::p, comp waterproof:::p::p}, comp title:::p::p, seq l {comp fingerprintLabel:::p::p, space :::p, comp fingerprint:::p::p}}, space ::52:x}}"
+			"$verticalGroup": "par l {seq l {space :::p, comp title:::p::p, space u:::p, par b {comp waterproofLabel::b:p::p, comp waterproof::b:p::p}, space :::p, par b {comp rearCamerasLabel::b:p::p, comp rearCameras::b:p::p}, space :::p, par b {comp fingerprintLabel::b:p::p, comp fingerprint::b:p::p}, space ::83:x, comp next:::p::p, space :::p}}"
+		} ) {
+			name: "this"
+			"title": "Phone app - Stage 3"
+			add( new FormComponent( "javax.swing.JLabel" ) {
+				name: "title"
+				"text": "Phone app"
+				"font": new com.jformdesigner.model.SwingDerivedFont( null, 0, 9, false )
+			} )
+			add( new FormComponent( "javax.swing.JLabel" ) {
+				name: "waterproofLabel"
+				"text": "Do you want the phone to be waterproof?"
+				"font": new com.jformdesigner.model.SwingDerivedFont( null, 0, 3, false )
+			} )
+			add( new FormComponent( "javax.swing.JLabel" ) {
+				name: "rearCamerasLabel"
+				"text": "Do you want the phone to have multiple rear cameras?"
+				"font": new com.jformdesigner.model.SwingDerivedFont( null, 0, 3, false )
+			} )
+			add( new FormComponent( "javax.swing.JLabel" ) {
+				name: "fingerprintLabel"
+				"text": "Do you want the phone to have a fingerprint scanner?"
+				"font": new com.jformdesigner.model.SwingDerivedFont( null, 0, 3, false )
+			} )
+			add( new FormComponent( "javax.swing.JComboBox" ) {
+				name: "waterproof"
+				auxiliary() {
+					"JavaCodeGenerator.postInitCode": "waterproof.addItem(\"Choose an item\");\nwaterproof.addItem(\"Yes\");\nwaterproof.addItem(\"No\");\nwaterproof.addItem(\"Not important\");\n\nwaterproof.addItemListener(new ItemListener() {\n     @Override\n     public void itemStateChanged(ItemEvent e) {\n        if(waterproof.getSelectedIndex()==0 || rearCameras.getSelectedIndex()==0 || fingerprint.getSelectedIndex()==0) next.setEnabled(false);\n        else next.setEnabled(true);\n     }\n });"
+				}
+			} )
+			add( new FormComponent( "javax.swing.JComboBox" ) {
+				name: "rearCameras"
+				auxiliary() {
+					"JavaCodeGenerator.postInitCode": "rearCameras.addItem(\"Choose an item\");\nrearCameras.addItem(\"Yes\");\nrearCameras.addItem(\"No\");\nrearCameras.addItem(\"Not important\");\n\nrearCameras.addItemListener(new ItemListener() {\n     @Override\n     public void itemStateChanged(ItemEvent e) {\n        if(waterproof.getSelectedIndex()==0 || rearCameras.getSelectedIndex()==0 || fingerprint.getSelectedIndex()==0) next.setEnabled(false);\n        else next.setEnabled(true);\n     }\n });"
+				}
+			} )
+			add( new FormComponent( "javax.swing.JComboBox" ) {
+				name: "fingerprint"
+				auxiliary() {
+					"JavaCodeGenerator.postInitCode": "fingerprint.addItem(\"Choose an item\");\nfingerprint.addItem(\"Yes\");\nfingerprint.addItem(\"No\");\nfingerprint.addItem(\"Not important\");\n\nfingerprint.addItemListener(new ItemListener() {\n     @Override\n     public void itemStateChanged(ItemEvent e) {\n        if(waterproof.getSelectedIndex()==0 || rearCameras.getSelectedIndex()==0 || fingerprint.getSelectedIndex()==0) next.setEnabled(false);\n        else next.setEnabled(true);\n     }\n });"
+				}
+			} )
+			add( new FormComponent( "javax.swing.JButton" ) {
+				name: "next"
+				"text": "Next"
+				auxiliary() {
+					"JavaCodeGenerator.postInitCode": "next.addActionListener(e -> submitActionPerformed(e));\nnext.setEnabled(false);"
+				}
+			} )
+		}, new FormLayoutConstraints( null ) {
+			"location": new java.awt.Point( 0, 0 )
+			"size": new java.awt.Dimension( 535, 300 )
+		} )
+	}
+}
