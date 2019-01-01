@@ -50,7 +50,7 @@ public class StageFour extends JFrame {
             new ResultWindow().showWindowStage3_2(budget,touchscreen,expandableStorage,dualSim,preferredBrand,displaySize,waterproof,rearCameras,fingerprint);
             this.dispose();
         } else if (stage>4 && rearCamerasValue != 1 && fingerprintValue != 1) {
-            new StageFive(stage, budget, touchscreen,expandableStorage, dualSim, preferredBrand, displaySize, fingerprint,rearCameras,waterproof,4,5);
+            new StageFive(stage, budget, touchscreen,expandableStorage, dualSim, preferredBrand, displaySize, fingerprint,rearCameras,waterproof,4,5); //to check
         }
     }
 

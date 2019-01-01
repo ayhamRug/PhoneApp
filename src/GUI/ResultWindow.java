@@ -125,7 +125,7 @@ public class ResultWindow extends JFrame {
 
         if(preferredBrand != 10 && phones.size()>0) {
             for(int i=0; i<phones.size(); i++) {
-                if(phones.get(i).getBrand() != brand) {
+                if(!phones.get(i).getBrand().equals(brand)) {
                     phones.remove(i);
                     i--;
                 }
@@ -199,28 +199,28 @@ public class ResultWindow extends JFrame {
         if(fingerprintLocation!=5 && phones.size()>0) {
             if(fingerprintLocation == 1) {
                 for(int i=0; i<phones.size(); i++) {
-                    if(phones.get(i).getFingerprintLocation() != "rear") {
+                    if(!phones.get(i).getFingerprintLocation().equals("rear")) {
                         phones.remove(i);
                         i--;
                     }
                 }
             } else if (fingerprintLocation == 2) {
                 for(int i=0; i<phones.size(); i++) {
-                    if(phones.get(i).getFingerprintLocation() != "front") {
+                    if(!phones.get(i).getFingerprintLocation().equals("front")) {
                         phones.remove(i);
                         i--;
                     }
                 }
             } else if (fingerprintLocation == 3) {
                 for(int i=0; i<phones.size(); i++) {
-                    if(phones.get(i).getFingerprintLocation() != "side") {
+                    if(!phones.get(i).getFingerprintLocation().equals("side")) {
                         phones.remove(i);
                         i--;
                     }
                 }
             } else if (fingerprintLocation == 4) {
                 for(int i=0; i<phones.size(); i++) {
-                    if(phones.get(i).getFingerprintLocation() != "underDisplay") {
+                    if(!phones.get(i).getFingerprintLocation().equals("underDisplay")) {
                         phones.remove(i);
                         i--;
                     }
@@ -287,21 +287,21 @@ public class ResultWindow extends JFrame {
         if (connector != 4 && phones.size()>0) {
             if(connector == 1) {
                 for(int i=0; i<phones.size(); i++) {
-                    if(phones.get(i).getConnectorType()!= "microUSB") {
+                    if(!phones.get(i).getConnectorType().equals("microUSB")) {
                         phones.remove(i);
                         i--;
                     }
                 }
             } else if (connector == 2) {
                 for(int i=0; i<phones.size(); i++) {
-                    if(phones.get(i).getConnectorType()!= "typeC") {
+                    if(!phones.get(i).getConnectorType().equals("typeC")) {
                         phones.remove(i);
                         i--;
                     }
                 }
             } else if (connector == 3) {
                 for(int i=0; i<phones.size(); i++) {
-                    if(phones.get(i).getConnectorType()!= "lightning") {
+                    if(!phones.get(i).getConnectorType().equals("lightning")) {
                         phones.remove(i);
                         i--;
                     }
