@@ -51,99 +51,88 @@ public class Phone {
 
     private float price;
     private float displaySize; // in inches
-
-    private int ageSuitabilityScore;
-    private int designScore;
-    private int performanceScore;
-    private int batteryScore;
-    private int cameraScore;
     private int numberOfCameras;
 
-    private boolean hasExpandableStorage;
-    private boolean isDualSim;
-    private boolean isWaterProof;
-    private boolean isTouchScreen;
-    private boolean hasKeyboard;
-    private boolean hasMultipleCameras;
-    private boolean hasFingerprint;
-    private boolean hasHeadphoneJack;
-    private boolean hasPen;
-    private boolean hasFaceRecognition;
+    private boolean touchscreen;
+    private boolean dualSim;
+    private boolean expandableStorage;
+    private boolean keyboard;
+    private boolean waterproof;
+    private boolean multipleCameras;
+    private boolean fingerprint;
+    private boolean headphoneJack;
+    private boolean pen;
+    private boolean faceRecognition;
 
-    // getters
-    //
-
-    public PhoneBrandSelector getBrand(){
+    public PhoneBrandSelector getBrand() {
         return brand;
     }
 
-    public FingerprintLocation getFingerprintLocation() { return fingerprintLocation; }
+    public FingerprintLocation getFingerprintLocation() {
+        return fingerprintLocation;
+    }
 
     public ConnectorType getConnectorType() {
         return connectorType;
     }
 
-    public int getNumberOfCameras() { return numberOfCameras; }
-
-    public int getAgeSuitabilityScore() {
-        return ageSuitabilityScore;
+    public String getName() {
+        return name;
     }
 
-    public int getDesignScore() {
-        return designScore;
+    public String getImage() {
+        return image;
     }
 
-    public int getPerformanceScore() {
-        return performanceScore;
-    }
-
-    public int getBatteryScore() {
-        return batteryScore;
-    }
-
-    public int getCameraScore() {
-        return cameraScore;
-    }
-
-    public boolean hasExpandableStorage() {
-        return hasExpandableStorage;
+    public float getPrice() {
+        return price;
     }
 
     public float getDisplaySize() {
         return displaySize;
     }
 
-    public float getPrice(){
-        return price;
+    public int getNumberOfCameras() {
+        return numberOfCameras;
     }
 
-    public String getName(){
-        return name;
+    public boolean isTouchscreen() {
+        return touchscreen;
     }
-
-    public String getImage(){
-        return image;
-    }
-
-    public boolean hasFingerprint() { return hasFingerprint; }
 
     public boolean isDualSim() {
-        return isDualSim;
+        return dualSim;
     }
 
-    public boolean isWaterProof() {
-        return isWaterProof;
+    public boolean isExpandableStorage() {
+        return expandableStorage;
     }
 
-    public boolean isTouchScreen() { return isTouchScreen; }
+    public boolean isKeyboard() {
+        return keyboard;
+    }
 
-    public boolean hasKeyboard() { return hasKeyboard; }
+    public boolean isWaterproof() {
+        return waterproof;
+    }
 
-    public boolean hasMultipleCameras() { return hasMultipleCameras; }
+    public boolean isMultipleCameras() {
+        return multipleCameras;
+    }
 
-    public boolean hasHeadphoneJack() { return hasHeadphoneJack; }
+    public boolean isFingerprint() {
+        return fingerprint;
+    }
 
-    public boolean hasPen() { return hasPen; }
+    public boolean isHeadphoneJack() {
+        return headphoneJack;
+    }
 
-    public boolean hasFaceRecognition() { return hasFaceRecognition; }
+    public boolean isPen() {
+        return pen;
+    }
+
+    public boolean isFaceRecognition() {
+        return faceRecognition;
+    }
 }

@@ -28,7 +28,7 @@ public class InputWindow extends JFrame {
         initComponents();
     }
 
-    private void submitActionPerformed(ActionEvent e) throws IOException {
+    private void submitActionPerformed(ActionEvent e) {
         // TODO add your code here
         int expStorage=0, display=0, dualSim=0, waterproof=0;
         System.out.println(expStorage);
@@ -47,14 +47,14 @@ public class InputWindow extends JFrame {
 
         System.out.println(expStorage);
 
-        new ResultWindow().showWindow(Integer.parseInt(min.getText()),Integer.parseInt(max.getText()),Integer.parseInt(age.getText()),
+        new Results().showWindow(Integer.parseInt(min.getText()),Integer.parseInt(max.getText()),Integer.parseInt(age.getText()),
                 brandComboBox.getSelectedItem().toString(), expStorage, display,dualSim,waterproof);
         this.dispose();
     }
 
     private void initComponents() {
         // JFormDesigner - Component initialization - DO NOT MODIFY  //GEN-BEGIN:initComponents
-        // Generated using JFormDesigner Evaluation license - John
+        // Generated using JFormDesigner Evaluation license - Name
         Title = new JLabel();
         budgetLabel = new JLabel();
         min = new JTextField();
@@ -281,13 +281,7 @@ public class InputWindow extends JFrame {
 
         //---- submit ----
         submit.setText("Search");
-        submit.addActionListener(e -> {
-            try {
-                submitActionPerformed(e);
-            } catch (IOException e1) {
-                e1.printStackTrace();
-            }
-        });
+        submit.addActionListener(e -> submitActionPerformed(e));
         submit.setEnabled(false);
 
         //---- label1 ----
@@ -364,7 +358,7 @@ public class InputWindow extends JFrame {
                                         .addComponent(otherLabel))
                                     .addPreferredGap(LayoutStyle.ComponentPlacement.UNRELATED)
                                     .addComponent(Preference, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)))
-                            .addGap(0, 75, Short.MAX_VALUE))
+                            .addGap(0, 82, Short.MAX_VALUE))
                         .addGroup(contentPaneLayout.createSequentialGroup()
                             .addComponent(budgetLabel)
                             .addGap(12, 12, 12)
@@ -372,12 +366,12 @@ public class InputWindow extends JFrame {
                             .addGap(6, 6, 6)
                             .addComponent(max, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
                             .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
-                            .addComponent(budgetFieldRequired, GroupLayout.DEFAULT_SIZE, 207, Short.MAX_VALUE)))
+                            .addComponent(budgetFieldRequired, GroupLayout.DEFAULT_SIZE, 208, Short.MAX_VALUE)))
                     .addContainerGap())
                 .addGroup(contentPaneLayout.createSequentialGroup()
                     .addGap(187, 187, 187)
                     .addComponent(Title)
-                    .addContainerGap(189, Short.MAX_VALUE))
+                    .addContainerGap(188, Short.MAX_VALUE))
         );
         contentPaneLayout.setVerticalGroup(
             contentPaneLayout.createParallelGroup()
@@ -436,7 +430,7 @@ public class InputWindow extends JFrame {
     }
 
     // JFormDesigner - Variables declaration - DO NOT MODIFY  //GEN-BEGIN:variables
-    // Generated using JFormDesigner Evaluation license - John
+    // Generated using JFormDesigner Evaluation license - Name
     private JLabel Title;
     private JLabel budgetLabel;
     private JTextField min;

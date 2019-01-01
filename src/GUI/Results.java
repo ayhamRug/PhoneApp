@@ -15,7 +15,7 @@ import java.util.ArrayList;
 import javax.swing.*;
 import javax.swing.GroupLayout;
 
-public class ResultWindow extends JFrame {
+public class Results extends JFrame {
 
 
     private void restartActionPerformed(ActionEvent e){
@@ -24,7 +24,7 @@ public class ResultWindow extends JFrame {
         this.setVisible(false);
     }
 
-    public void showWindow(int min, int max, int age, String brand, int expStorage, int displaySize, int dualSim, int waterproof) throws IOException {
+    public void showWindow(int min, int max, int age, String brand, int expStorage, int displaySize, int dualSim, int waterproof) {
 
         this.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
         boolean temp;
@@ -112,20 +112,20 @@ public class ResultWindow extends JFrame {
                 URL f = ClassLoader.getSystemResource(phones.get(i).getImage());
                 phonesFound.setText(phonesFound.getText()+
 
-                        "<tr> " +
-                        "<th class= tg-baqh  colspan= 2 >" +
+                                "<tr> " +
+                                "<th class= tg-baqh  colspan= 2 >" +
                                 phones.get(i).getName() +
-                        "</th>" +
-                        "</tr>" +
-                        "<tr>" +
+                                "</th>" +
+                                "</tr>" +
+                                "<tr>" +
 //                        "<th class='tg-0lax'>" +
 //                                "<img src='" + f.toString()+ "'></img>" +
 //                        "</th>" +
-                        "<th class='tg-0lax'>" +
+                                "<th class='tg-0lax'>" +
                                 "Price: "+phones.get(i).getPrice() +
-                        "</th>" +
-                        "</tr>"
-                        );
+                                "</th>" +
+                                "</tr>"
+                );
             }
 
             phonesFound.setText(phonesFound.getText() +
@@ -138,7 +138,7 @@ public class ResultWindow extends JFrame {
 
     }
 
-    public ResultWindow() {
+    public Results() {
         initComponents();
     }
 
@@ -178,33 +178,33 @@ public class ResultWindow extends JFrame {
         GroupLayout contentPaneLayout = new GroupLayout(contentPane);
         contentPane.setLayout(contentPaneLayout);
         contentPaneLayout.setHorizontalGroup(
-            contentPaneLayout.createParallelGroup()
-                .addGroup(contentPaneLayout.createSequentialGroup()
-                    .addGap(22, 22, 22)
-                    .addGroup(contentPaneLayout.createParallelGroup(GroupLayout.Alignment.TRAILING)
-                        .addComponent(label6)
-                        .addComponent(Title))
-                    .addContainerGap(409, Short.MAX_VALUE))
-                .addGroup(GroupLayout.Alignment.TRAILING, contentPaneLayout.createSequentialGroup()
-                    .addContainerGap(597, Short.MAX_VALUE)
-                    .addComponent(restart)
-                    .addGap(43, 43, 43))
-                .addGroup(GroupLayout.Alignment.TRAILING, contentPaneLayout.createSequentialGroup()
-                    .addContainerGap()
-                    .addComponent(scrollPane1, GroupLayout.DEFAULT_SIZE, 712, Short.MAX_VALUE))
+                contentPaneLayout.createParallelGroup()
+                        .addGroup(contentPaneLayout.createSequentialGroup()
+                                .addGap(22, 22, 22)
+                                .addGroup(contentPaneLayout.createParallelGroup(GroupLayout.Alignment.TRAILING)
+                                        .addComponent(label6)
+                                        .addComponent(Title))
+                                .addContainerGap(409, Short.MAX_VALUE))
+                        .addGroup(GroupLayout.Alignment.TRAILING, contentPaneLayout.createSequentialGroup()
+                                .addContainerGap(597, Short.MAX_VALUE)
+                                .addComponent(restart)
+                                .addGap(43, 43, 43))
+                        .addGroup(GroupLayout.Alignment.TRAILING, contentPaneLayout.createSequentialGroup()
+                                .addContainerGap()
+                                .addComponent(scrollPane1, GroupLayout.DEFAULT_SIZE, 712, Short.MAX_VALUE))
         );
         contentPaneLayout.setVerticalGroup(
-            contentPaneLayout.createParallelGroup()
-                .addGroup(contentPaneLayout.createSequentialGroup()
-                    .addContainerGap()
-                    .addComponent(Title)
-                    .addPreferredGap(LayoutStyle.ComponentPlacement.UNRELATED)
-                    .addComponent(label6)
-                    .addGap(32, 32, 32)
-                    .addComponent(scrollPane1, GroupLayout.PREFERRED_SIZE, 577, GroupLayout.PREFERRED_SIZE)
-                    .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED, 8, Short.MAX_VALUE)
-                    .addComponent(restart)
-                    .addContainerGap())
+                contentPaneLayout.createParallelGroup()
+                        .addGroup(contentPaneLayout.createSequentialGroup()
+                                .addContainerGap()
+                                .addComponent(Title)
+                                .addPreferredGap(LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(label6)
+                                .addGap(32, 32, 32)
+                                .addComponent(scrollPane1, GroupLayout.PREFERRED_SIZE, 577, GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED, 8, Short.MAX_VALUE)
+                                .addComponent(restart)
+                                .addContainerGap())
         );
         pack();
         setLocationRelativeTo(getOwner());

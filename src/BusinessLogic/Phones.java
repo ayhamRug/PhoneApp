@@ -22,8 +22,14 @@ public class Phones {
 
     private List<Phone> phones;
 
-    public Phones() throws IOException{
-        phones = getFromJSONFile();
+    public Phones(){
+        try {
+            phones = getFromJSONFile();
+        }
+        catch(IOException e) {
+            e.printStackTrace();
+        }
+
     }
 
     public List<Phone> getPhones() {
