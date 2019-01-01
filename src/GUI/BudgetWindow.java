@@ -74,7 +74,7 @@ public class BudgetWindow extends JFrame {
         Title.setHorizontalTextPosition(SwingConstants.CENTER);
 
         //---- budgetLabel ----
-        budgetLabel.setText("What is your maximum budget?");
+        budgetLabel.setText("What is your maximum budget? (in euros)");
         budgetLabel.setFont(budgetLabel.getFont().deriveFont(budgetLabel.getFont().getSize() + 3f));
 
         //---- max ----

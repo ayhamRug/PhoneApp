@@ -20,7 +20,7 @@ new FormModel {
 			} )
 			add( new FormComponent( "javax.swing.JLabel" ) {
 				name: "budgetLabel"
-				"text": "What is your maximum budget?"
+				"text": "What is your maximum budget? (in euros)"
 				"font": new com.jformdesigner.model.SwingDerivedFont( null, 0, 3, false )
 			} )
 			add( new FormComponent( "javax.swing.JTextField" ) {
@@ -46,7 +46,7 @@ new FormModel {
 			} )
 		}, new FormLayoutConstraints( null ) {
 			"location": new java.awt.Point( 205, 125 )
-			"size": new java.awt.Dimension( 300, 215 )
+			"size": new java.awt.Dimension( 310, 215 )
 		} )
 	}
 }

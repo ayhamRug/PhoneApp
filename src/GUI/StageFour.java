@@ -120,7 +120,7 @@ public class StageFour extends JFrame {
         fingerprintLocation.addItemListener(new ItemListener() {
              @Override
              public void itemStateChanged(ItemEvent e) {
-                if(fingerprintLocation.isEnabled()==true && rearCameraNumber.isEnabled()==true && fingerprintLocation.getSelectedIndex()==0 && rearCameraNumber.getSelectedIndex()==0) next.setEnabled(false);
+                if(fingerprintLocation.isEnabled()==true && rearCameraNumber.isEnabled()==true && (fingerprintLocation.getSelectedIndex()==0 || rearCameraNumber.getSelectedIndex()==0)) next.setEnabled(false);
                 else if(fingerprintLocation.isEnabled()==false && rearCameraNumber.isEnabled()==true && rearCameraNumber.getSelectedIndex()==0) next.setEnabled(false);
                 else if(fingerprintLocation.isEnabled()==true && rearCameraNumber.isEnabled()==false && fingerprintLocation.getSelectedIndex()==0) next.setEnabled(false);
                 else next.setEnabled(true);
@@ -138,10 +138,12 @@ public class StageFour extends JFrame {
         rearCameraNumber.addItem("4");
         rearCameraNumber.addItem("Not important");
 
+        if(rearCameras != 1) rearCameraNumber.setEnabled(false);
+
         rearCameraNumber.addItemListener(new ItemListener() {
              @Override
              public void itemStateChanged(ItemEvent e) {
-                if(fingerprintLocation.isEnabled()==true && rearCameraNumber.isEnabled()==true && fingerprintLocation.getSelectedIndex()==0 && rearCameraNumber.getSelectedIndex()==0) next.setEnabled(false);
+                if(fingerprintLocation.isEnabled()==true && rearCameraNumber.isEnabled()==true && (fingerprintLocation.getSelectedIndex()==0 || rearCameraNumber.getSelectedIndex()==0)) next.setEnabled(false);
                 else if(fingerprintLocation.isEnabled()==false && rearCameraNumber.isEnabled()==true && rearCameraNumber.getSelectedIndex()==0) next.setEnabled(false);
                 else if(fingerprintLocation.isEnabled()==true && rearCameraNumber.isEnabled()==false && fingerprintLocation.getSelectedIndex()==0) next.setEnabled(false);
                 else next.setEnabled(true);
