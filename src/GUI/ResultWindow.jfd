@@ -12,7 +12,7 @@ new FormModel {
 			add( new FormComponent( "javax.swing.JLabel" ) {
 				name: "Title"
 				"text": "Search Result"
-				"font": new com.jformdesigner.model.SwingDerivedFont( null, 0, 3, false )
+				"font": new com.jformdesigner.name.SwingDerivedFont( null, 0, 3, false )
 			} )
 			add( new FormComponent( "javax.swing.JLabel" ) {
 				name: "label6"

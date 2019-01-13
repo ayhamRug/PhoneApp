@@ -1,6 +1,14 @@
 package BusinessLogic;
 
-import java.util.ArrayList;
+import com.fasterxml.jackson.annotation.JsonAutoDetect;
+import com.fasterxml.jackson.annotation.PropertyAccessor;
+import com.fasterxml.jackson.core.type.TypeReference;
+import com.fasterxml.jackson.databind.*;
+
+import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Paths;
+import java.util.List;
 
 public class Phones {
 
@@ -12,64 +20,32 @@ public class Phones {
     // Regarding the ageSuitabilityScore and designScore, we asked our experts to provide us
     // with a score from 1 to 10 and we made an average and approximated them to the closest integer.
 
-    private ArrayList<Phone> phones = new ArrayList<Phone>();
+    private List<Phone> phones;
 
-    public Phones() {
-        Phone phone = null;
-
-        // Huawei phones
-        phone = new Phone(Phone.PhoneBrandSelector.Huawei, "Huawei P20", 499,5.8f, 9,7,
-                208795, 77, 102, false, true,false, "huawei-p20.jpg");
-        phones.add(phone);
-        phone = new Phone(Phone.PhoneBrandSelector.Huawei, "Huawei P20 Pro", 690,6.1f, 8,7,
-                209863, 89, 109, false, true, true, "huawei-p20-pro.jpg");
-        phones.add(phone);
-
-        // iPhone phones
-        phone = new Phone(Phone.PhoneBrandSelector.Apple, "iPhone 8", 653,4.7f, 9,7,
-                226791, 66, 92,false, false, true, "iphone-8.jpg");
-        phones.add(phone);
-        phone = new Phone(Phone.PhoneBrandSelector.Apple, "iPhone 8 Plus", 841,5.5f, 9,7,
-                234229, 81, 94,false, false ,true, "iphone-8-plus.jpg");
-        phones.add(phone);
-
-        // LG phones
-        phone = new Phone(Phone.PhoneBrandSelector.LG, "LG G7 ThinQ", 453,6.1f, 5,7,
-                256086, 77, 83, true, true, true, "lg-g7-thinq.jpg");
-        phones.add(phone);
-        phone = new Phone(Phone.PhoneBrandSelector.LG, "LG V30", 399,6.0f, 6,6,
-                173781, 93, 82,true, true, true, "lg-v30.jpg");
-        phones.add(phone);
-
-        // Nokia phones
-        phone = new Phone(Phone.PhoneBrandSelector.Nokia, "Nokia 7 Plus", 313,6.0f, 7,6,
-                140190, 87, 62,true, true, false, "nokia-7-plus.jpg");
-        phones.add(phone);
-        phone = new Phone(Phone.PhoneBrandSelector.Nokia, "Nokia 8", 299,5.3f, 9,4,
-                208828, 78, 68, true,true, false, "nokia-8.jpg");
-        phones.add(phone);
-
-        // Samsung phones
-        phone = new Phone(Phone.PhoneBrandSelector.Samsung, "Samsung S8", 419,5.8f, 7,8,
-                196958, 84, 95, true, true, true, "samsung-galaxy-s8.jpg");
-        phones.add(phone);
-        phone = new Phone(Phone.PhoneBrandSelector.Samsung, "Samsung S8 Plus", 497,6.2f, 6,8,
-                196923, 88, 96, true, true, true, "samsung-galaxy-s8-plus.jpg");
-        phones.add(phone);
-        phone = new Phone(Phone.PhoneBrandSelector.Samsung, "Samsung S9", 490, 5.8f, 7,8,
-                262421,78, 95,true,true,true, "samsung-galaxy-s9.jpg");
-        phones.add(phone);
-
-        // Sony phones
-        phone = new Phone(Phone.PhoneBrandSelector.Sony, "Sony Xperia XZ2", 550,5.7f, 8,6,
-                266913, 88, 90, true, true, true, "sony-xperia-xz2.jpg");
-        phones.add(phone);
-        phone = new Phone(Phone.PhoneBrandSelector.Sony, "Sony Xperia XZ2 Compact", 448,5.0f, 8,6,
-                268088, 88, 86, true, true, true, "sony-xperia-xz2-compact.jpg");
-        phones.add(phone);
+    public Phones() throws IOException{
+        phones = getFromJSONFile();
     }
 
-    public ArrayList<Phone> getPhones() {
+    public List<Phone> getPhones() {
         return phones;
+    }
+
+    private List<Phone> getFromJSONFile() throws IOException {
+        ObjectMapper objectMapper = new ObjectMapper();
+        objectMapper.configure(MapperFeature.ACCEPT_CASE_INSENSITIVE_PROPERTIES, true);
+        objectMapper.configure(MapperFeature.ACCEPT_CASE_INSENSITIVE_ENUMS, true);
+
+        // as boolean getters names doesn't start from get
+        // and if we want to deserialize them, we have to set this
+        objectMapper.setVisibility(PropertyAccessor.FIELD, JsonAutoDetect.Visibility.ANY);
+
+        objectMapper.configure(DeserializationFeature.READ_UNKNOWN_ENUM_VALUES_AS_NULL, true);
+
+        byte[] jsonPhones = Files.readAllBytes(Paths.get(".\\data\\phonesArray.json"));
+        JsonNode phoneNodes = objectMapper.readTree(jsonPhones).get("phones");
+        ObjectReader reader = objectMapper.readerFor(new TypeReference<List<Phone>>() {});
+        List<Phone> phoneList = reader.readValue(phoneNodes);
+
+        return phoneList;
     }
 }

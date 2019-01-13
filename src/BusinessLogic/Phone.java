@@ -29,53 +29,61 @@ public class Phone {
         }
     }
 
+    public enum FingerprintLocation {
+        Front,
+        Back,
+        Side,
+        Rear,
+        UnderDisplay
+    }
+
+    public enum ConnectorType {
+        TypeC,
+        Lightning
+    }
+
     private PhoneBrandSelector brand;
-    private String model;
+    private FingerprintLocation fingerprintLocation;
+    private ConnectorType connectorType;
+
+    private String name;
+    private String image;
+
     private float price;
-    private float screenSize; // in inches
+    private float displaySize; // in inches
 
     private int ageSuitabilityScore;
     private int designScore;
     private int performanceScore;
     private int batteryScore;
     private int cameraScore;
-    private boolean expandableStorage;
-    private boolean dualSim;
-    private boolean waterproof;
-    private String img;
+    private int numberOfCameras;
 
-    public Phone(PhoneBrandSelector brand, String model, float price, float screenSize, int ageSuitabilityScore,
-                 int designScore, int performanceScore, int batteryScore, int cameraScore, boolean expandableStorage,
-                 boolean dualSim, boolean waterproof, String img){
-        this.brand = brand;
-        this.model = model;
-        this.price = price;
-        this.screenSize = screenSize;
-        this.ageSuitabilityScore = ageSuitabilityScore;
-        this.designScore = designScore;
-        this.performanceScore = performanceScore;
-        this.batteryScore = batteryScore;
-        this.cameraScore = cameraScore;
-        this.expandableStorage = expandableStorage;
-        this.dualSim = dualSim;
-        this.waterproof = waterproof;
-        this.img = img;
-    }
+    private boolean hasExpandableStorage;
+    private boolean isDualSim;
+    private boolean isWaterProof;
+    private boolean isTouchScreen;
+    private boolean hasKeyboard;
+    private boolean hasMultipleCameras;
+    private boolean hasFingerprint;
+    private boolean hasHeadphoneJack;
+    private boolean hasPen;
+    private boolean hasFaceRecognition;
 
     // getters
     //
 
-    public float getScreenSize() {
-        return screenSize;
+    public PhoneBrandSelector getBrand(){
+        return brand;
     }
 
-    public boolean isDualSim() {
-        return dualSim;
+    public FingerprintLocation getFingerprintLocation() { return fingerprintLocation; }
+
+    public ConnectorType getConnectorType() {
+        return connectorType;
     }
 
-    public boolean isWaterproof() {
-        return waterproof;
-    }
+    public int getNumberOfCameras() { return numberOfCameras; }
 
     public int getAgeSuitabilityScore() {
         return ageSuitabilityScore;
@@ -97,23 +105,45 @@ public class Phone {
         return cameraScore;
     }
 
-    public boolean isExpandableStorage() {
-        return expandableStorage;
+    public boolean hasExpandableStorage() {
+        return hasExpandableStorage;
     }
 
-    public PhoneBrandSelector getBrand(){
-        return brand;
+    public float getDisplaySize() {
+        return displaySize;
     }
 
     public float getPrice(){
         return price;
     }
 
-    public String getModel(){
-        return model;
+    public String getName(){
+        return name;
     }
 
-    public String getImg(){
-        return img;
+    public String getImage(){
+        return image;
     }
+
+    public boolean hasFingerprint() { return hasFingerprint; }
+
+    public boolean isDualSim() {
+        return isDualSim;
+    }
+
+    public boolean isWaterProof() {
+        return isWaterProof;
+    }
+
+    public boolean isTouchScreen() { return isTouchScreen; }
+
+    public boolean hasKeyboard() { return hasKeyboard; }
+
+    public boolean hasMultipleCameras() { return hasMultipleCameras; }
+
+    public boolean hasHeadphoneJack() { return hasHeadphoneJack; }
+
+    public boolean hasPen() { return hasPen; }
+
+    public boolean hasFaceRecognition() { return hasFaceRecognition; }
 }

@@ -9,8 +9,7 @@ import BusinessLogic.Phones;
 
 import java.awt.*;
 import java.awt.event.ActionEvent;
-import java.io.File;
-import java.lang.reflect.Array;
+import java.io.IOException;
 import java.net.URL;
 import java.util.ArrayList;
 import javax.swing.*;
@@ -25,7 +24,7 @@ public class ResultWindow extends JFrame {
         this.setVisible(false);
     }
 
-    public void showWindow(int min, int max, int age, String brand, int expStorage, int displaySize, int dualSim, int waterproof) {
+    public void showWindow(int min, int max, int age, String brand, int expStorage, int displaySize, int dualSim, int waterproof) throws IOException {
 
         this.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
         boolean temp;
@@ -35,7 +34,7 @@ public class ResultWindow extends JFrame {
         scrollPane1.getVerticalScrollBar().setUnitIncrement(20);
         restart.addActionListener(e -> restartActionPerformed(e));
 
-        ArrayList<Phone> phones = new Phones().getPhones();
+        ArrayList<Phone> phones = new ArrayList<>(new Phones().getPhones());
 
         for(int i=0; i<phones.size(); i++) {
             if(phones.get(i).getPrice()<min || phones.get(i).getPrice()>max) {
@@ -56,7 +55,7 @@ public class ResultWindow extends JFrame {
             if(expStorage == 1) temp = true;
             else temp = false;
             for(int i=0; i<phones.size(); i++) {
-                if(phones.get(i).isExpandableStorage()!=temp) {
+                if(phones.get(i).hasExpandableStorage()!=temp) {
                     phones.remove(i);
                     i--;
                 }
@@ -65,10 +64,10 @@ public class ResultWindow extends JFrame {
 
         if(displaySize!=0 && phones.size()>0) {
             for(int i=0; i<phones.size(); i++) {
-                if(displaySize==1 && phones.get(i).getScreenSize()<5.2) {
+                if(displaySize==1 && phones.get(i).getDisplaySize()<5.2) {
                     phones.remove(i);
                     i--;
-                } else if(displaySize==2 && phones.get(i).getScreenSize()>=5.2) {
+                } else if(displaySize==2 && phones.get(i).getDisplaySize()>=5.2) {
                     phones.remove(i);
                     i--;
                 }
@@ -90,7 +89,7 @@ public class ResultWindow extends JFrame {
             if(waterproof == 1) temp = true;
             else temp = false;
             for(int i=0; i<phones.size(); i++) {
-                if(phones.get(i).isWaterproof()!=temp) {
+                if(phones.get(i).isWaterProof()!=temp) {
                     phones.remove(i);
                     i--;
                 }
@@ -110,18 +109,18 @@ public class ResultWindow extends JFrame {
             phonesFound.setText(phonesFound.getText() + "<center><table class='tg'>" );
 
             for(int i=0;i<phones.size();i++) {
-                URL f = ClassLoader.getSystemResource(phones.get(i).getImg());
+                URL f = ClassLoader.getSystemResource(phones.get(i).getImage());
                 phonesFound.setText(phonesFound.getText()+
 
                         "<tr> " +
                         "<th class= tg-baqh  colspan= 2 >" +
-                                phones.get(i).getModel() +
+                                phones.get(i).getName() +
                         "</th>" +
                         "</tr>" +
                         "<tr>" +
-                        "<th class='tg-0lax'>" +
-                                "<img src='" + f.toString()+ "'></img>" +
-                        "</th>" +
+//                        "<th class='tg-0lax'>" +
+//                                "<img src='" + f.toString()+ "'></img>" +
+//                        "</th>" +
                         "<th class='tg-0lax'>" +
                                 "Price: "+phones.get(i).getPrice() +
                         "</th>" +
