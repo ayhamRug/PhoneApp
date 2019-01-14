@@ -9,13 +9,20 @@ import BusinessLogic.Phones;
 
 import java.awt.*;
 import java.awt.event.ActionEvent;
+import java.awt.image.BufferedImage;
+import java.io.File;
+import java.io.IOException;
 import java.net.URL;
 import java.util.ArrayList;
+import javax.imageio.ImageIO;
 import javax.swing.*;
 import javax.swing.GroupLayout;
+import javax.swing.event.DocumentEvent;
+import javax.swing.event.DocumentListener;
 
 public class ResultWindow extends JFrame {
 
+    public ArrayList<Phone> phones = new ArrayList<>(new Phones().getPhones());
 
     private void restartActionPerformed(ActionEvent e){
 
@@ -300,78 +307,121 @@ public class ResultWindow extends JFrame {
         }
     }
 
-    private void printInfo(ArrayList<Phone> phones) {
-        if(phones.size()==0) phonesFound.setText("<html>Nothing has been found unfortunately!<br>Please adjust your parameters and try again.</html>");
-        else {
-            phonesFound.setText("<html><style type='text/css'>" +
-                    "..tg  {border-collapse:collapse;border-spacing:0;} " +
-                    ".tg td{font-family:Arial, sans-serif;font-size:14px;padding:10px 5px;border-style:solid;border-width:1px;overflow:hidden;word-break:normal;border-color:black;} " +
-                    ".tg th{font-family:Arial, sans-serif;font-size:14px;font-weight:normal;padding:10px 5px;border-style:solid;border-width:1px;overflow:hidden;word-break:normal;border-color:black;} " +
-                    ".tg .tg-baqh{text-align:center;vertical-align:top}" +
-                    "</style>");
-
-
-            phonesFound.setText(phonesFound.getText() + "<center><table class='tg'>" );
-
-            for(int i=0;i<phones.size();i++) {
-                URL f = ClassLoader.getSystemResource(phones.get(i).getImage());
-                phonesFound.setText(phonesFound.getText()+
-
-                                "<tr> " +
-                                "<th class= tg-baqh  colspan= 2 >" +
-                                phones.get(i).getName() +
-                                "</th>" +
-                                "</tr>" +
-                                "<tr>" +
-//                        "<th class='tg-0lax'>" +
-//                                "<img src='" + f.toString()+ "'></img>" +
-//                        "</th>" +
-                                "<th class='tg-0lax'>" +
-                                "Price: "+phones.get(i).getPrice() +
-                                "</th>" +
-                                "</tr>"
-                );
-            }
-
-            phonesFound.setText(phonesFound.getText() +
-                    "</table></center>");
-
-
-
-            phonesFound.setText(phonesFound.getText()+"</html>");
-        }
-    }
-
     private void init() {
         this.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
 
         this.pack();
         this.setResizable(false);
         this.setVisible(true);
-        scrollPane1.getVerticalScrollBar().setUnitIncrement(20);
+
         restart.addActionListener(e -> restartActionPerformed(e));
+    }
+
+    public void setPhoneImage(int i) {
+        if(phones.size()==0) {
+            BufferedImage img = null;
+            try {
+                img = ImageIO.read(new File(".\\phoneImages\\na.png"));
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+
+            Image dimg = img.getScaledInstance(phoneImage.getWidth(), phoneImage.getHeight(),
+                    Image.SCALE_SMOOTH);
+
+            ImageIcon imageIcon = new ImageIcon(dimg);
+
+            phoneImage.setIcon(imageIcon);
+        } else {
+            BufferedImage img = null;
+            try {
+                img = ImageIO.read(new File(phones.get(i).getImage()));
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+
+            Image dimg = img.getScaledInstance(phoneImage.getWidth(), phoneImage.getHeight(),
+                    Image.SCALE_SMOOTH);
+
+            ImageIcon imageIcon = new ImageIcon(dimg);
+
+            phoneImage.setIcon(imageIcon);
+
+            info.setText("<html>Name: " + phones.get(i).getName() + "<br>" +
+                    "Price: " + phones.get(i).getPrice() + "<br>" +
+                    "Touchscreen: ");
+
+            if(phones.get(i).isTouchscreen() == true) info.setText(info.getText()+"Yes");
+            else info.setText(info.getText()+"No");
+
+            info.setText(info.getText()+"<br>" + "Dual Sim: ");
+
+            if(phones.get(i).isDualSim() == true) info.setText(info.getText()+"Yes");
+            else info.setText(info.getText()+"No");
+
+            info.setText(info.getText()+"<br>" + "Expandable Storage: ");
+
+            if(phones.get(i).isExpandableStorage() == true) info.setText(info.getText()+"Yes");
+            else info.setText(info.getText()+"No");
+
+            info.setText(info.getText()+"<br>" + "Brand: " + phones.get(i).getBrand() + "<br>" + "Keyboard: ");
+
+            if(phones.get(i).isKeyboard() == true) info.setText(info.getText()+"Yes");
+            else info.setText(info.getText()+"No");
+
+            info.setText(info.getText()+"<br>" + "Display size: " + phones.get(i).getDisplaySize() + "<br>" + "Waterproof: ");
+
+            if(phones.get(i).isWaterproof() == true) info.setText(info.getText()+"Yes");
+            else info.setText(info.getText()+"No");
+
+            info.setText(info.getText()+"<br>" + "Multiple cameras: ");
+
+            if(phones.get(i).isMultipleCameras() == true) info.setText(info.getText()+"Yes"+ "<br>" + "Number of rear cameras: " + phones.get(i).getNumberOfCameras());
+            else info.setText(info.getText()+"No"+ "<br>" + "Number of rear cameras: " + phones.get(i).getNumberOfCameras());
+
+            info.setText(info.getText()+"<br>" + "Fingerprint: ");
+
+            if(phones.get(i).isFingerprint() == true) info.setText(info.getText()+"Yes" + "<br>" + "Fingerprint location: " + phones.get(i).getFingerprintLocation() + "<br>");
+            else info.setText(info.getText()+"No");
+
+            info.setText(info.getText()+"<br>" + "Connector Type: " + phones.get(i).getConnectorType());
+
+            info.setText(info.getText()+"<br>" + "Headphone jack: ");
+
+            if(phones.get(i).isHeadphoneJack() == true) info.setText(info.getText()+"Yes");
+            else info.setText(info.getText()+"No");
+
+            info.setText(info.getText()+"<br>" + "Pen/Stylus: ");
+
+            if(phones.get(i).isPen() == true) info.setText(info.getText()+"Yes");
+            else info.setText(info.getText()+"No");
+
+            info.setText(info.getText()+"<br>" + "Face recognition capability: ");
+
+            if(phones.get(i).isFaceRecognition() == true) info.setText(info.getText()+"Yes");
+            else info.setText(info.getText()+"No");
+
+            info.setText(info.getText()+"</html>");
+        }
+
+
     }
 
     public void showWindowStage1(int budget, int kindOfPhone, int expStorage, int dualSim) {
 
         init();
 
-        ArrayList<Phone> phones = new ArrayList<>(new Phones().getPhones());
-
         priceFilter(phones,budget);
         expandableStorageFilter(phones,expStorage);
         dualSimFilter(phones,dualSim);
         kindOfPhoneStage1Filter(phones,kindOfPhone);
 
-        printInfo(phones);
-
+        setPhoneImage(0);
     }
 
     public void showWindowStage2(int budget, int kindOfPhone, int expStorage, int dualSim, int preferredBrand, int displaySize) {
         init();
 
-        ArrayList<Phone> phones = new ArrayList<>(new Phones().getPhones());
-
         priceFilter(phones,budget);
         expandableStorageFilter(phones,expStorage);
         dualSimFilter(phones,dualSim);
@@ -379,14 +429,12 @@ public class ResultWindow extends JFrame {
         preferredBrandFilter(phones,preferredBrand);
         displaySizeFilter(phones,displaySize);
 
-        printInfo(phones);
+        setPhoneImage(0);
     }
 
     public void showWindowStage3_1(int budget, int kindOfPhone, int expStorage, int dualSim, int preferredBrand, int displaySize) {
         init();
 
-        ArrayList<Phone> phones = new ArrayList<>(new Phones().getPhones());
-
         priceFilter(phones,budget);
         expandableStorageFilter(phones,expStorage);
         dualSimFilter(phones,dualSim);
@@ -394,14 +442,12 @@ public class ResultWindow extends JFrame {
         preferredBrandFilter(phones,preferredBrand);
         displaySizeFilter(phones,displaySize);
 
-        printInfo(phones);
+        setPhoneImage(0);
     }
 
     public void showWindowStage3_2(int budget, int kindOfPhone, int expStorage, int dualSim, int preferredBrand, int displaySize, int waterproof, int rearCameras, int fingerprint) {
         init();
 
-        ArrayList<Phone> phones = new ArrayList<>(new Phones().getPhones());
-
         priceFilter(phones,budget);
         expandableStorageFilter(phones,expStorage);
         dualSimFilter(phones,dualSim);
@@ -412,14 +458,12 @@ public class ResultWindow extends JFrame {
         rearCamerasFilter(phones,rearCameras);
         fingerprintFilter(phones,fingerprint);
 
-        printInfo(phones);
+        setPhoneImage(0);
     }
 
     public void showWindowStage4_1(int budget, int kindOfPhone, int expStorage, int dualSim, int preferredBrand, int displaySize, int waterproof, int rearCameras, int fingerprint, int fingerprintLocation, int rearCameraNumber) {
         init();
 
-        ArrayList<Phone> phones = new ArrayList<>(new Phones().getPhones());
-
         priceFilter(phones,budget);
         expandableStorageFilter(phones,expStorage);
         dualSimFilter(phones,dualSim);
@@ -432,14 +476,13 @@ public class ResultWindow extends JFrame {
         fingerprintLocationFilter(phones,fingerprintLocation);
         rearCameraNumberFilter(phones,rearCameraNumber);
 
-        printInfo(phones);
+        setPhoneImage(0);
+
     }
 
     public void showWindowStage4_2(int budget, int kindOfPhone, int expStorage, int dualSim, int preferredBrand, int displaySize, int waterproof, int rearCameras, int fingerprint, int fingerprintLocation) {
         init();
 
-        ArrayList<Phone> phones = new ArrayList<>(new Phones().getPhones());
-
         priceFilter(phones,budget);
         expandableStorageFilter(phones,expStorage);
         dualSimFilter(phones,dualSim);
@@ -451,13 +494,12 @@ public class ResultWindow extends JFrame {
         fingerprintFilter(phones,fingerprint);
         fingerprintLocationFilter(phones,fingerprintLocation);
 
-        printInfo(phones);
+        setPhoneImage(0);
+
     }
 
     public void showWindowStage4_3(int budget, int kindOfPhone, int expStorage, int dualSim, int preferredBrand, int displaySize, int waterproof, int rearCameras, int fingerprint, int rearCameraNumber) {
         init();
-
-        ArrayList<Phone> phones = new ArrayList<>(new Phones().getPhones());
 
         priceFilter(phones,budget);
         expandableStorageFilter(phones,expStorage);
@@ -470,13 +512,11 @@ public class ResultWindow extends JFrame {
         fingerprintFilter(phones,fingerprint);
         rearCameraNumberFilter(phones,rearCameraNumber);
 
-        printInfo(phones);
+        setPhoneImage(0);
     }
 
     public void showWindowStage5(int budget, int kindOfPhone, int expStorage, int dualSim, int preferredBrand, int displaySize, int fingerprint, int rearCameras, int waterproof, int rearCameraNumber, int fingerprintLocation, int faceRecognition, int pen, int connector, int headphoneJack) {
         init();
-
-        ArrayList<Phone> phones = new ArrayList<>(new Phones().getPhones());
 
         priceFilter(phones,budget);
         expandableStorageFilter(phones,expStorage);
@@ -494,7 +534,7 @@ public class ResultWindow extends JFrame {
         headphoneJackFilter(phones,headphoneJack);
         connectorFilter(phones,connector);
 
-        printInfo(phones);
+        setPhoneImage(0);
     }
 
     public ResultWindow() {
@@ -506,32 +546,44 @@ public class ResultWindow extends JFrame {
         // Generated using JFormDesigner Evaluation license - Name
         Title = new JLabel();
         label6 = new JLabel();
-        scrollPane1 = new JScrollPane();
-        phonesFound = new JLabel();
         restart = new JButton();
+        phoneImage = new JLabel();
+        specs = new JLabel();
+        button1 = new JButton();
+        button2 = new JButton();
+        info = new JLabel();
 
         //======== this ========
         setTitle("Phone App - Results");
         Container contentPane = getContentPane();
 
         //---- Title ----
-        Title.setText("Search Result");
+        Title.setText("Search Results");
+        Title.setFont(Title.getFont().deriveFont(Title.getFont().getSize() + 9f));
 
         //---- label6 ----
-        label6.setText("Based on your search paramaters, these are the results:");
-
-        //======== scrollPane1 ========
-        {
-            scrollPane1.setHorizontalScrollBarPolicy(ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);
-
-            //---- phonesFound ----
-            phonesFound.setText("text");
-            phonesFound.setHorizontalAlignment(SwingConstants.CENTER);
-            scrollPane1.setViewportView(phonesFound);
-        }
+        label6.setText("Based on your search paramaters, these are the best phones you can buy for the money:");
 
         //---- restart ----
         restart.setText("Search again");
+
+        //---- phoneImage ----
+        if(phones.size()==0) {
+            phoneImage.setIcon(new ImageIcon(".\\phoneImages\\na.png"));
+        }
+
+        //---- specs ----
+        specs.setText("Specifications:");
+        specs.setFont(specs.getFont().deriveFont(specs.getFont().getSize() + 3f));
+
+        //---- button1 ----
+        button1.setText("Previous");
+
+        //---- button2 ----
+        button2.setText("Next");
+
+        //---- info ----
+        info.setText("text");
 
         GroupLayout contentPaneLayout = new GroupLayout(contentPane);
         contentPane.setLayout(contentPaneLayout);
@@ -539,30 +591,50 @@ public class ResultWindow extends JFrame {
             contentPaneLayout.createParallelGroup()
                 .addGroup(contentPaneLayout.createSequentialGroup()
                     .addGap(22, 22, 22)
-                    .addGroup(contentPaneLayout.createParallelGroup(GroupLayout.Alignment.TRAILING)
-                        .addComponent(label6)
-                        .addComponent(Title))
-                    .addContainerGap(409, Short.MAX_VALUE))
-                .addGroup(GroupLayout.Alignment.TRAILING, contentPaneLayout.createSequentialGroup()
-                    .addContainerGap(597, Short.MAX_VALUE)
-                    .addComponent(restart)
-                    .addGap(43, 43, 43))
-                .addGroup(GroupLayout.Alignment.TRAILING, contentPaneLayout.createSequentialGroup()
-                    .addContainerGap()
-                    .addComponent(scrollPane1, GroupLayout.DEFAULT_SIZE, 712, Short.MAX_VALUE))
+                    .addGroup(contentPaneLayout.createParallelGroup()
+                        .addGroup(contentPaneLayout.createSequentialGroup()
+                            .addComponent(button1)
+                            .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
+                            .addComponent(button2)
+                            .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(restart)
+                            .addGap(15, 15, 15))
+                        .addGroup(contentPaneLayout.createSequentialGroup()
+                            .addGroup(contentPaneLayout.createParallelGroup()
+                                .addComponent(Title)
+                                .addComponent(label6))
+                            .addContainerGap(GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addGroup(contentPaneLayout.createSequentialGroup()
+                            .addComponent(phoneImage, GroupLayout.DEFAULT_SIZE, 402, Short.MAX_VALUE)
+                            .addGap(18, 18, 18)
+                            .addGroup(contentPaneLayout.createParallelGroup()
+                                .addComponent(specs, GroupLayout.PREFERRED_SIZE, 219, GroupLayout.PREFERRED_SIZE)
+                                .addComponent(info))
+                            .addGap(57, 57, 57))))
         );
         contentPaneLayout.setVerticalGroup(
             contentPaneLayout.createParallelGroup()
                 .addGroup(contentPaneLayout.createSequentialGroup()
-                    .addContainerGap()
+                    .addGap(12, 12, 12)
                     .addComponent(Title)
-                    .addPreferredGap(LayoutStyle.ComponentPlacement.UNRELATED)
-                    .addComponent(label6)
-                    .addGap(32, 32, 32)
-                    .addComponent(scrollPane1, GroupLayout.PREFERRED_SIZE, 577, GroupLayout.PREFERRED_SIZE)
-                    .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED, 8, Short.MAX_VALUE)
-                    .addComponent(restart)
-                    .addContainerGap())
+                    .addGroup(contentPaneLayout.createParallelGroup()
+                        .addGroup(contentPaneLayout.createSequentialGroup()
+                            .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
+                            .addComponent(label6)
+                            .addPreferredGap(LayoutStyle.ComponentPlacement.UNRELATED)
+                            .addComponent(phoneImage, GroupLayout.DEFAULT_SIZE, 550, Short.MAX_VALUE)
+                            .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED, 37, Short.MAX_VALUE)
+                            .addGroup(contentPaneLayout.createParallelGroup(GroupLayout.Alignment.BASELINE)
+                                .addComponent(restart)
+                                .addComponent(button1)
+                                .addComponent(button2))
+                            .addGap(16, 16, 16))
+                        .addGroup(contentPaneLayout.createSequentialGroup()
+                            .addGap(90, 90, 90)
+                            .addComponent(specs, GroupLayout.PREFERRED_SIZE, 25, GroupLayout.PREFERRED_SIZE)
+                            .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
+                            .addComponent(info)
+                            .addContainerGap(530, Short.MAX_VALUE))))
         );
         pack();
         setLocationRelativeTo(getOwner());
@@ -573,8 +645,11 @@ public class ResultWindow extends JFrame {
     // Generated using JFormDesigner Evaluation license - Name
     private JLabel Title;
     private JLabel label6;
-    private JScrollPane scrollPane1;
-    private JLabel phonesFound;
     private JButton restart;
+    private JLabel phoneImage;
+    private JLabel specs;
+    private JButton button1;
+    private JButton button2;
+    private JLabel info;
     // JFormDesigner - End of variables declaration  //GEN-END:variables
 }

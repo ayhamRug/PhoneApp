@@ -2,23 +2,6 @@ package BusinessLogic;
 
 public class Phone {
 
-    public enum ExpandableStorage {
-
-        ANY("Not Important"),
-        YES("Yes"),
-        NO("No");
-
-        private final String toString;
-
-        private ExpandableStorage(String toString) {
-            this.toString = toString;
-        }
-
-        public String toString(){
-            return toString;
-        }
-    }
-
     private String brand;
     private String fingerprintLocation;
     private String connectorType;
