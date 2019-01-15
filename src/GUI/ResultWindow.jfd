@@ -4,8 +4,8 @@ new FormModel {
 	contentType: "form/swing"
 	root: new FormRoot {
 		add( new FormWindow( "javax.swing.JFrame", new FormLayoutManager( class org.jdesktop.layout.GroupLayout ) {
-			"$horizontalGroup": "par l {seq l {space :22:22:p, par l {seq {comp button1:::p::p, space :::p, comp button2:::p::p, space :::x, comp restart:::p::p, space :p:15:p}, seq {par l {comp Title:::p::p, comp label6:::p::p}, space :::x}, seq l {comp phoneImage::::402:x, space s:::p, par l {comp specs:::p:219:p, comp info:::p::p}, space :p:57:p}}}}"
-			"$verticalGroup": "par l {seq l {space :p:12:p, comp Title:::p::p, par l {seq {space :::p, comp label6:::p::p, space u:::p, comp phoneImage::::550:x, space ::37:x, par b {comp restart::b:p::p, comp button1::b:p::p, comp button2::b:p::p}, space :p:16:p}, seq l {space :p:90:p, comp specs:::p:25:p, space :::p, comp info:::p::p, space ::530:x}}}}"
+			"$horizontalGroup": "par l {seq l {space :22:22:p, par l {seq {par l {comp Title:::p::p, comp label6:::p::p}, space :::x}, seq t {par t {seq {comp phoneImage::::399:x, space :::p, par l {comp specs:::::x, comp info::::276:x}}, seq {comp previous:::p::p, space :::p, comp next:::p::p, space u:::p, comp min:::p::p, space :::p, comp slash:::::x, space :p:5:p, comp max:::p::p, space ::359:x, comp restart:::p::p}}, space :p:15:p}}}}"
+			"$verticalGroup": "par l {seq {par l {seq l {space :p:12:p, comp Title:::p::p, space :::p, comp label6:::p::p, space u:::p, par l {seq t {comp specs:::p:77:p, space :::p, comp info:::p:317:p, space :p:141:p}, comp phoneImage:::::x}, space ::56:x, par b {comp previous::b:p::p, comp next::b:p::p, comp restart::b:p::p}}, seq t {space ::670:x, par b {comp min::b:p::p, comp max::b:p::p, comp slash::b:p::p}}}, space :::p}}"
 		} ) {
 			name: "this"
 			"title": "Phone App - Results"
@@ -34,16 +34,37 @@ new FormModel {
 				"font": new com.jformdesigner.model.SwingDerivedFont( null, 0, 3, false )
 			} )
 			add( new FormComponent( "javax.swing.JButton" ) {
-				name: "button1"
+				name: "previous"
 				"text": "Previous"
+				auxiliary() {
+					"JavaCodeGenerator.postInitCode": "previous.addActionListener(e -> previousActionPerformed(e));\nprevious.setEnabled(false);"
+				}
 			} )
 			add( new FormComponent( "javax.swing.JButton" ) {
-				name: "button2"
+				name: "next"
 				"text": "Next"
+				auxiliary() {
+					"JavaCodeGenerator.postInitCode": "next.addActionListener(e -> nextActionPerformed(e));"
+				}
 			} )
 			add( new FormComponent( "javax.swing.JLabel" ) {
 				name: "info"
 				"text": "text"
+			} )
+			add( new FormComponent( "javax.swing.JLabel" ) {
+				name: "min"
+				"text": "0"
+				"font": new com.jformdesigner.model.SwingDerivedFont( null, 0, 12, false )
+			} )
+			add( new FormComponent( "javax.swing.JLabel" ) {
+				name: "slash"
+				"text": "/"
+				"font": new com.jformdesigner.model.SwingDerivedFont( null, 0, 12, false )
+			} )
+			add( new FormComponent( "javax.swing.JLabel" ) {
+				name: "max"
+				"text": "5"
+				"font": new com.jformdesigner.model.SwingDerivedFont( null, 0, 12, false )
 			} )
 		}, new FormLayoutConstraints( null ) {
 			"location": new java.awt.Point( 0, 0 )

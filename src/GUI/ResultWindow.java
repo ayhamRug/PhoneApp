@@ -20,9 +20,12 @@ import javax.swing.GroupLayout;
 import javax.swing.event.DocumentEvent;
 import javax.swing.event.DocumentListener;
 
+import static java.lang.Math.min;
+
 public class ResultWindow extends JFrame {
 
     public ArrayList<Phone> phones = new ArrayList<>(new Phones().getPhones());
+    public int current = 0;
 
     private void restartActionPerformed(ActionEvent e){
 
@@ -317,6 +320,42 @@ public class ResultWindow extends JFrame {
         restart.addActionListener(e -> restartActionPerformed(e));
     }
 
+    public static void quickSort(ArrayList<Phone> arr, int start, int end){
+
+        int partition = partition(arr, start, end);
+
+        if(partition-1>start) {
+            quickSort(arr, start, partition - 1);
+        }
+        if(partition+1<end) {
+            quickSort(arr, partition + 1, end);
+        }
+    }
+
+    public static int partition(ArrayList<Phone> arr, int start, int end){
+        Phone pivot = arr.get(end);
+
+        for(int i=start; i<end; i++){
+            if(arr.get(i).getPrice()>pivot.getPrice()){
+                Phone temp= arr.get(start);
+                arr.set(start,arr.get(i));
+                arr.set(i,temp);
+                start++;
+            }
+        }
+
+        Phone temp = arr.get(start);
+        arr.set(start,pivot);
+        arr.set(end,temp);
+
+        return start;
+    }
+
+    public int minim(int a, int b) {
+        if (a<b) return a;
+        return b;
+    }
+
     public void setPhoneImage(int i) {
         if(phones.size()==0) {
             BufferedImage img = null;
@@ -332,6 +371,22 @@ public class ResultWindow extends JFrame {
             ImageIcon imageIcon = new ImageIcon(dimg);
 
             phoneImage.setIcon(imageIcon);
+
+            previous.setEnabled(false);
+            next.setEnabled(false);
+
+            label6.setVisible(false);
+            min.setVisible(false);
+            max.setVisible(false);
+            info.setVisible(false);
+            slash.setText("NONE");
+            specs.setText("<HTML>Unfortunately we were not able to find any phone" +
+                    "that would meet your seach paramaters. Search again and adjust " +
+                    "your parameters.");
+
+            Point location = specs.getLocation();
+            specs.setLocation(location.x, location.y+20);
+
         } else {
             BufferedImage img = null;
             try {
@@ -346,6 +401,20 @@ public class ResultWindow extends JFrame {
             ImageIcon imageIcon = new ImageIcon(dimg);
 
             phoneImage.setIcon(imageIcon);
+
+            min.setText(Integer.toString(i+1));
+            if(phones.size()>5) max.setText(Integer.toString(5));
+            else max.setText(Integer.toString(phones.size()));
+
+            if(phones.size()>5) label6.setText("Based on your search paramaters, these are the best 5 phones you can buy for the money:");
+            else label6.setText("Based on your search paramaters, these are the best " + phones.size() + " phones you can buy for the money:");
+
+            current = i;
+            if(i>0) previous.setEnabled(true);
+            else previous.setEnabled(false);
+
+            if(i< minim(5,phones.size())-1) next.setEnabled(true);
+            else next.setEnabled(false);
 
             info.setText("<html>Name: " + phones.get(i).getName() + "<br>" +
                     "Price: " + phones.get(i).getPrice() + "<br>" +
@@ -381,7 +450,7 @@ public class ResultWindow extends JFrame {
 
             info.setText(info.getText()+"<br>" + "Fingerprint: ");
 
-            if(phones.get(i).isFingerprint() == true) info.setText(info.getText()+"Yes" + "<br>" + "Fingerprint location: " + phones.get(i).getFingerprintLocation() + "<br>");
+            if(phones.get(i).isFingerprint() == true) info.setText(info.getText()+"Yes" + "<br>" + "Fingerprint location: " + phones.get(i).getFingerprintLocation());
             else info.setText(info.getText()+"No");
 
             info.setText(info.getText()+"<br>" + "Connector Type: " + phones.get(i).getConnectorType());
@@ -416,6 +485,7 @@ public class ResultWindow extends JFrame {
         dualSimFilter(phones,dualSim);
         kindOfPhoneStage1Filter(phones,kindOfPhone);
 
+        if(phones.size()>0) quickSort(phones,0,phones.size()-1);
         setPhoneImage(0);
     }
 
@@ -429,6 +499,7 @@ public class ResultWindow extends JFrame {
         preferredBrandFilter(phones,preferredBrand);
         displaySizeFilter(phones,displaySize);
 
+        if(phones.size()>0) quickSort(phones,0,phones.size()-1);
         setPhoneImage(0);
     }
 
@@ -442,6 +513,7 @@ public class ResultWindow extends JFrame {
         preferredBrandFilter(phones,preferredBrand);
         displaySizeFilter(phones,displaySize);
 
+        if(phones.size()>0) quickSort(phones,0,phones.size()-1);
         setPhoneImage(0);
     }
 
@@ -458,6 +530,7 @@ public class ResultWindow extends JFrame {
         rearCamerasFilter(phones,rearCameras);
         fingerprintFilter(phones,fingerprint);
 
+        if(phones.size()>0) quickSort(phones,0,phones.size()-1);
         setPhoneImage(0);
     }
 
@@ -476,6 +549,7 @@ public class ResultWindow extends JFrame {
         fingerprintLocationFilter(phones,fingerprintLocation);
         rearCameraNumberFilter(phones,rearCameraNumber);
 
+        if(phones.size()>0) quickSort(phones,0,phones.size()-1);
         setPhoneImage(0);
 
     }
@@ -494,6 +568,7 @@ public class ResultWindow extends JFrame {
         fingerprintFilter(phones,fingerprint);
         fingerprintLocationFilter(phones,fingerprintLocation);
 
+        if(phones.size()>0) quickSort(phones,0,phones.size()-1);
         setPhoneImage(0);
 
     }
@@ -512,6 +587,7 @@ public class ResultWindow extends JFrame {
         fingerprintFilter(phones,fingerprint);
         rearCameraNumberFilter(phones,rearCameraNumber);
 
+        if(phones.size()>0) quickSort(phones,0,phones.size()-1);
         setPhoneImage(0);
     }
 
@@ -534,11 +610,26 @@ public class ResultWindow extends JFrame {
         headphoneJackFilter(phones,headphoneJack);
         connectorFilter(phones,connector);
 
+        if(phones.size()>0) quickSort(phones,0,phones.size()-1);
         setPhoneImage(0);
     }
 
     public ResultWindow() {
         initComponents();
+    }
+
+    private void previousActionPerformed(ActionEvent e) {
+        // TODO add your code here
+
+        setPhoneImage(current-1);
+
+    }
+
+    private void nextActionPerformed(ActionEvent e) {
+        // TODO add your code here
+
+        setPhoneImage(current+1);
+
     }
 
     private void initComponents() {
@@ -549,9 +640,12 @@ public class ResultWindow extends JFrame {
         restart = new JButton();
         phoneImage = new JLabel();
         specs = new JLabel();
-        button1 = new JButton();
-        button2 = new JButton();
+        previous = new JButton();
+        next = new JButton();
         info = new JLabel();
+        min = new JLabel();
+        slash = new JLabel();
+        max = new JLabel();
 
         //======== this ========
         setTitle("Phone App - Results");
@@ -576,14 +670,29 @@ public class ResultWindow extends JFrame {
         specs.setText("Specifications:");
         specs.setFont(specs.getFont().deriveFont(specs.getFont().getSize() + 3f));
 
-        //---- button1 ----
-        button1.setText("Previous");
+        //---- previous ----
+        previous.setText("Previous");
+        previous.addActionListener(e -> previousActionPerformed(e));
+        previous.setEnabled(false);
 
-        //---- button2 ----
-        button2.setText("Next");
+        //---- next ----
+        next.setText("Next");
+        next.addActionListener(e -> nextActionPerformed(e));
 
         //---- info ----
         info.setText("text");
+
+        //---- min ----
+        min.setText("0");
+        min.setFont(min.getFont().deriveFont(min.getFont().getSize() + 12f));
+
+        //---- slash ----
+        slash.setText("/");
+        slash.setFont(slash.getFont().deriveFont(slash.getFont().getSize() + 12f));
+
+        //---- max ----
+        max.setText("5");
+        max.setFont(max.getFont().deriveFont(max.getFont().getSize() + 12f));
 
         GroupLayout contentPaneLayout = new GroupLayout(contentPane);
         contentPane.setLayout(contentPaneLayout);
@@ -593,48 +702,61 @@ public class ResultWindow extends JFrame {
                     .addGap(22, 22, 22)
                     .addGroup(contentPaneLayout.createParallelGroup()
                         .addGroup(contentPaneLayout.createSequentialGroup()
-                            .addComponent(button1)
-                            .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
-                            .addComponent(button2)
-                            .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(restart)
-                            .addGap(15, 15, 15))
-                        .addGroup(contentPaneLayout.createSequentialGroup()
                             .addGroup(contentPaneLayout.createParallelGroup()
                                 .addComponent(Title)
                                 .addComponent(label6))
                             .addContainerGap(GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                        .addGroup(contentPaneLayout.createSequentialGroup()
-                            .addComponent(phoneImage, GroupLayout.DEFAULT_SIZE, 402, Short.MAX_VALUE)
-                            .addGap(18, 18, 18)
-                            .addGroup(contentPaneLayout.createParallelGroup()
-                                .addComponent(specs, GroupLayout.PREFERRED_SIZE, 219, GroupLayout.PREFERRED_SIZE)
-                                .addComponent(info))
-                            .addGap(57, 57, 57))))
+                        .addGroup(GroupLayout.Alignment.TRAILING, contentPaneLayout.createSequentialGroup()
+                            .addGroup(contentPaneLayout.createParallelGroup(GroupLayout.Alignment.TRAILING)
+                                .addGroup(contentPaneLayout.createSequentialGroup()
+                                    .addComponent(phoneImage, GroupLayout.DEFAULT_SIZE, 399, Short.MAX_VALUE)
+                                    .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
+                                    .addGroup(contentPaneLayout.createParallelGroup()
+                                        .addComponent(specs, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                        .addComponent(info, GroupLayout.DEFAULT_SIZE, 276, Short.MAX_VALUE)))
+                                .addGroup(contentPaneLayout.createSequentialGroup()
+                                    .addComponent(previous)
+                                    .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
+                                    .addComponent(next)
+                                    .addPreferredGap(LayoutStyle.ComponentPlacement.UNRELATED)
+                                    .addComponent(min)
+                                    .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
+                                    .addComponent(slash, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addGap(5, 5, 5)
+                                    .addComponent(max)
+                                    .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED, 359, Short.MAX_VALUE)
+                                    .addComponent(restart)))
+                            .addGap(15, 15, 15))))
         );
         contentPaneLayout.setVerticalGroup(
             contentPaneLayout.createParallelGroup()
                 .addGroup(contentPaneLayout.createSequentialGroup()
-                    .addGap(12, 12, 12)
-                    .addComponent(Title)
                     .addGroup(contentPaneLayout.createParallelGroup()
                         .addGroup(contentPaneLayout.createSequentialGroup()
+                            .addGap(12, 12, 12)
+                            .addComponent(Title)
                             .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
                             .addComponent(label6)
                             .addPreferredGap(LayoutStyle.ComponentPlacement.UNRELATED)
-                            .addComponent(phoneImage, GroupLayout.DEFAULT_SIZE, 550, Short.MAX_VALUE)
-                            .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED, 37, Short.MAX_VALUE)
+                            .addGroup(contentPaneLayout.createParallelGroup()
+                                .addGroup(GroupLayout.Alignment.TRAILING, contentPaneLayout.createSequentialGroup()
+                                    .addComponent(specs, GroupLayout.PREFERRED_SIZE, 77, GroupLayout.PREFERRED_SIZE)
+                                    .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
+                                    .addComponent(info, GroupLayout.PREFERRED_SIZE, 317, GroupLayout.PREFERRED_SIZE)
+                                    .addGap(141, 141, 141))
+                                .addComponent(phoneImage, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                            .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED, 56, Short.MAX_VALUE)
                             .addGroup(contentPaneLayout.createParallelGroup(GroupLayout.Alignment.BASELINE)
-                                .addComponent(restart)
-                                .addComponent(button1)
-                                .addComponent(button2))
-                            .addGap(16, 16, 16))
-                        .addGroup(contentPaneLayout.createSequentialGroup()
-                            .addGap(90, 90, 90)
-                            .addComponent(specs, GroupLayout.PREFERRED_SIZE, 25, GroupLayout.PREFERRED_SIZE)
-                            .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
-                            .addComponent(info)
-                            .addContainerGap(530, Short.MAX_VALUE))))
+                                .addComponent(previous)
+                                .addComponent(next)
+                                .addComponent(restart)))
+                        .addGroup(GroupLayout.Alignment.TRAILING, contentPaneLayout.createSequentialGroup()
+                            .addContainerGap(670, Short.MAX_VALUE)
+                            .addGroup(contentPaneLayout.createParallelGroup(GroupLayout.Alignment.BASELINE)
+                                .addComponent(min)
+                                .addComponent(max)
+                                .addComponent(slash))))
+                    .addContainerGap())
         );
         pack();
         setLocationRelativeTo(getOwner());
@@ -648,8 +770,11 @@ public class ResultWindow extends JFrame {
     private JButton restart;
     private JLabel phoneImage;
     private JLabel specs;
-    private JButton button1;
-    private JButton button2;
+    private JButton previous;
+    private JButton next;
     private JLabel info;
+    private JLabel min;
+    private JLabel slash;
+    private JLabel max;
     // JFormDesigner - End of variables declaration  //GEN-END:variables
 }
