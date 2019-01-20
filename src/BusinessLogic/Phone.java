@@ -1,5 +1,7 @@
 package BusinessLogic;
 
+// Defining a phone's specifications (just the ones we need for this system)
+
 public class Phone {
 
     private String brand;

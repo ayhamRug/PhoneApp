@@ -40,6 +40,8 @@ public class StageTwo extends JFrame {
         initComponents();
     }
 
+    // Move to according windows based on previous answers
+
     private void submitActionPerformed(ActionEvent e) {
         // TODO add your code here
         if(stage==2) {

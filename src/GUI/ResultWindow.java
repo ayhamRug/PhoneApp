@@ -27,6 +27,8 @@ public class ResultWindow extends JFrame {
     public ArrayList<Phone> phones = new ArrayList<>(new Phones().getPhones());
     public int current = 0;
 
+    // Filtering based on the answers provided to the questions on different stages
+
     private void restartActionPerformed(ActionEvent e){
 
         new BudgetWindow().showWindow();
@@ -320,6 +322,8 @@ public class ResultWindow extends JFrame {
         restart.addActionListener(e -> restartActionPerformed(e));
     }
 
+    // Sorting the phone using quickSort algorithm
+
     public static void quickSort(ArrayList<Phone> arr, int start, int end){
 
         int partition = partition(arr, start, end);
@@ -355,6 +359,8 @@ public class ResultWindow extends JFrame {
         if (a<b) return a;
         return b;
     }
+
+    // Display phone info
 
     public void setPhoneImage(int i) {
         if(phones.size()==0) {
@@ -475,6 +481,8 @@ public class ResultWindow extends JFrame {
 
 
     }
+
+    // Showing results based on different stages
 
     public void showWindowStage1(int budget, int kindOfPhone, int expStorage, int dualSim) {
 
@@ -618,15 +626,17 @@ public class ResultWindow extends JFrame {
         initComponents();
     }
 
+    // action performed by Previous button
+
     private void previousActionPerformed(ActionEvent e) {
-        // TODO add your code here
 
         setPhoneImage(current-1);
 
     }
 
+    // action performed by Previous button
+
     private void nextActionPerformed(ActionEvent e) {
-        // TODO add your code here
 
         setPhoneImage(current+1);
 

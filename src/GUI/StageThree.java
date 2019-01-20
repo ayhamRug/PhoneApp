@@ -42,6 +42,8 @@ public class StageThree extends JFrame {
         initComponents();
     }
 
+    // Move to according windows based on previous answers
+
     private void submitActionPerformed(ActionEvent e) {
         // TODO add your code here
         if(stage == 3) {
@@ -54,6 +56,8 @@ public class StageThree extends JFrame {
             this.dispose();
         }
     }
+
+    // Info windows
 
     private void waterproofQuestionActionPerformed(ActionEvent e) {
         // TODO add your code here

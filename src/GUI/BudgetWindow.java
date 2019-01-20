@@ -31,6 +31,8 @@ public class BudgetWindow extends JFrame {
         initComponents();
     }
 
+    // Move to stage One
+
     private void submitActionPerformed(ActionEvent e) {
         // TODO add your code here
 

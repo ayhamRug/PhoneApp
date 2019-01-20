@@ -52,6 +52,8 @@ public class StageFour extends JFrame {
             if(fingerprintValue != 1) fingerprintLocation.setEnabled(false);
 
 
+            // Move to according windows based on previous answers
+
         } else if (stage==4 && rearCamerasValue != 1 && fingerprintValue != 1) {
             new ResultWindow().showWindowStage3_2(budget,touchscreen,expandableStorage,dualSim,preferredBrand,displaySize,waterproof,rearCameras,fingerprint);
             this.dispose();
@@ -59,6 +61,8 @@ public class StageFour extends JFrame {
             new StageFive(stage, budget, touchscreen,expandableStorage, dualSim, preferredBrand, displaySize, fingerprint,rearCameras,waterproof,4,5);
         }
     }
+
+    // Move to according windows based on previous answers
 
     private void submitActionPerformed(ActionEvent e) {
         // TODO add your code here

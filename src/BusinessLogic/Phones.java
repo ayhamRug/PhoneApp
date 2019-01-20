@@ -12,13 +12,8 @@ import java.util.List;
 
 public class Phones {
 
-    // Websites advised to use for scores (by the experts):
-    // https://www.dxomark.com/category/mobile-reviews/ - for camera scores
-    // https://www.gsmarena.com/battery-test.php3 - for battery score
-    // http://www.antutu.com/en/ranking/rank1.htm - for performance score
-
-    // Regarding the ageSuitabilityScore and designScore, we asked our experts to provide us
-    // with a score from 1 to 10 and we made an average and approximated them to the closest integer.
+    // Websites advised to use (by the experts):
+    // https://www.gsmarena.com/ - specs about the phones
 
     private List<Phone> phones;
 
@@ -35,6 +30,8 @@ public class Phones {
     public List<Phone> getPhones() {
         return phones;
     }
+
+    //loading the database
 
     private List<Phone> getFromJSONFile() throws IOException {
         ObjectMapper objectMapper = new ObjectMapper();

@@ -35,6 +35,8 @@ public class StageOne extends JFrame {
         initComponents();
     }
 
+    // Info windows
+
     private void phoneTypeQuestionActionPerformed(ActionEvent e) {
         // TODO add your code here
 
@@ -71,6 +73,8 @@ public class StageOne extends JFrame {
                 "Not important: The application is going to consider both kind of phones.</html>");
         dialog1.setVisible(true);
     }
+
+    // Move to according windows based on previous answers
 
     private void submitActionPerformed(ActionEvent e) {
         // TODO add your code here

@@ -52,6 +52,8 @@ public class StageFive extends JFrame {
         initComponents();
     }
 
+    // More to results when Submit is pressed.
+
     private void submitActionPerformed(ActionEvent e) {
         // TODO add your code here
 
@@ -59,6 +61,8 @@ public class StageFive extends JFrame {
         this.dispose();
         dialog1.setVisible(false);
     }
+
+    // Info windows
 
     private void faceRecognitionQuestionActionPerformed(ActionEvent e) {
         // TODO add your code here
