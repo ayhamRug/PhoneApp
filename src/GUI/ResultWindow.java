@@ -396,12 +396,11 @@ public class ResultWindow extends JFrame {
         } else {
             BufferedImage img = null;
             try {
-                String path = path = System.getProperty("user.dir");
+                String path = System.getProperty("user.dir");
                 path = path.toString()+phones.get(i).getImage();
                 File f = new File(path);
                 if(!f.canRead()) {
                     String path2 = path.replaceAll("\\\\","/" );
-                    System.out.println(path2);
                     img = ImageIO.read(new File(path2));
                 } else {
                     img = ImageIO.read(f);
