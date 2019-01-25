@@ -5,6 +5,7 @@ import com.fasterxml.jackson.annotation.PropertyAccessor;
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.*;
 
+import java.io.File;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Paths;
@@ -44,7 +45,15 @@ public class Phones {
 
         objectMapper.configure(DeserializationFeature.READ_UNKNOWN_ENUM_VALUES_AS_NULL, true);
 
-        byte[] jsonPhones = Files.readAllBytes(Paths.get(".\\data\\phonesArray.json"));
+        String path = System.getProperty("user.dir");
+        path = path.toString()+"/data/phonesArray.json";
+
+        File f = new File(path);
+        if(!f.canRead()) {
+            path = System.getProperty("user.dir")+"\\data\\phonesArray.json";
+        }
+
+        byte[] jsonPhones = Files.readAllBytes(Paths.get(path));
         JsonNode phoneNodes = objectMapper.readTree(jsonPhones).get("phones");
         ObjectReader reader = objectMapper.readerFor(new TypeReference<List<Phone>>() {});
         List<Phone> phoneList = reader.readValue(phoneNodes);
